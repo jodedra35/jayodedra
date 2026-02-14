@@ -1,0 +1,17 @@
+# Site settings
+
+title: My Awesome Site
+
+description: This is my awesome site built with GitHub Pages!
+
+url: https://myawesomesite.github.io
+
+# Theme settings
+
+theme: minima
+
+# Optional settings
+
+social:
+  - twitter: mytwitterhandle
+  - github: jodedra35
