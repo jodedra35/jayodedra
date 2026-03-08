@@ -1380,10 +1380,11 @@
       <div class="big-title reveal">The person behind<br><span class="gradient-text">the growth</span></div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>I'm a <strong>Shopify Expert Partner</strong> and ecommerce growth strategist. For 6+ years I've been the
-            person AU and NZ brands call when they need to stop guessing and start growing.</p>
-          <div class="pull-quote">"I don't just run campaigns. I build the infrastructure that makes growth
-            repeatable."</div>
+          <p><strong>Shopify Expert Partner</strong> and ecommerce growth strategist with 6+ years scaling AU and NZ
+            consumer brands. Now looking to bring that experience in-house, working inside a single team rather than
+            across many.</p>
+          <div class="pull-quote">"Six years managing twelve brands at once teaches you one thing: the system matters
+            more than the campaign."</div>
           <p>As founder of <strong style="color:var(--green)">Flickkon Digital Agency</strong>, I've managed 50+ brand
             partnerships across 7 markets. I sit at the intersection of <strong>development, marketing, and AI
               automation</strong>, building Shopify stores that convert at 2× the industry average while reducing
@@ -1773,16 +1774,44 @@
     });
 
     // MOBILE MENU
-    document.getElementById('mobileMenu')?.addEventListener('click', () => {
-      const l = document.querySelector('.nav-links');
-      const s = l.style;
-      if (s.display === 'flex') { s.display = 'none'; return }
-      s.display = 'flex'; s.flexDirection = 'column'; s.position = 'fixed';
-      s.top = '70px'; s.left = '10px'; s.right = '10px';
-      s.background = 'rgba(10,10,15,.95)'; s.padding = '20px';
-      s.gap = '16px'; s.borderRadius = '16px'; s.border = '1px solid var(--border)';
-      s.backdropFilter = 'blur(20px)'; s.zIndex = '99';
-    });
+    const mobileMenuBtn = document.getElementById('mobileMenu');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenuBtn && navLinks) {
+      // Add mobile menu CSS
+      const mobileCSS = document.createElement('style');
+      mobileCSS.textContent = `
+        .nav-links.mobile-open {
+          display:flex!important;flex-direction:column;position:fixed;
+          top:70px;left:10px;right:10px;
+          background:rgba(10,10,15,.95);padding:20px;
+          gap:16px;border-radius:16px;border:1px solid var(--border);
+          backdrop-filter:blur(20px);z-index:99;
+        }
+      `;
+      document.head.appendChild(mobileCSS);
+
+      mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('mobile-open');
+        mobileMenuBtn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+      });
+
+      // Close on link click
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+          mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+      });
+
+      // Close on outside tap
+      document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          navLinks.classList.remove('mobile-open');
+          mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+      });
+    }
   </script>
 </body>
 
