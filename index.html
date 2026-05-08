@@ -1,1818 +1,698 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Jay Odedra | Ecommerce Growth Strategist & Shopify Expert</title>
-  <meta name="description"
-    content="Shopify Expert Partner. 50+ brands scaled. 4× ROAS. 4.5% conversion rates. Relocating to New Zealand." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jay Odedra | Ecommerce Growth & Digital Marketing</title>
+  <meta name="description" content="Jay Odedra | Ecommerce Growth Specialist, Digital Marketing, Shopify Expert Partner." />
+  <meta name="theme-color" content="#F4F1EA" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <style>
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
-
+    /* Neo-Brutalist / Bento Grid Design - High-End Editorial (Earth Tones) */
     :root {
-      --bg: #0a0a0f;
-      --surface: rgba(255, 255, 255, .04);
-      --surface-hover: rgba(255, 255, 255, .07);
-      --border: rgba(255, 255, 255, .08);
-      --border-hover: rgba(255, 255, 255, .15);
-      --text: #f0f0f5;
-      --dim: rgba(255, 255, 255, .5);
-      --muted: rgba(255, 255, 255, .3);
-      --green: #00dc82;
-      --green-glow: rgba(0, 220, 130, .15);
-      --green-dim: rgba(0, 220, 130, .08);
-      --blue: #0ea5e9;
-      --blue-glow: rgba(14, 165, 233, .15);
-      --teal: #2dd4bf;
-      --rose: #fb7185;
-      --amber: #fbbf24;
-      --indigo: #818cf8;
-      --heading: 'Archivo', sans-serif;
-      --body: 'Space Grotesk', sans-serif;
-      --r: 20px;
-      --r-sm: 12px;
+      --bg: #F0EBE1; /* Warm Oatmeal / Sand */
+      --text-main: #1A1A1A;
+      --text-muted: #595959;
+      --border-color: #1A1A1A;
+      --card-bg: #FAF9F6; /* Off-white */
+      --accent-1: #D97757; /* Terracotta */
+      --accent-2: #4A5D4E; /* Sage/Forest Green */
+      --accent-3: #416B82; /* Steel Blue */
+      --accent-4: #C4A46C; /* Mustard/Gold */
+      --accent-5: #7A5C61; /* Dusty Plum */
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius: 12px;
+      --shadow: 4px 4px 0px 0px #1A1A1A;
+      --shadow-hover: 8px 8px 0px 0px #1A1A1A;
+      --shadow-btn: 2px 2px 0px 0px #1A1A1A;
+      --shadow-btn-hover: 4px 4px 0px 0px #1A1A1A;
     }
 
-    html {
-      scroll-behavior: smooth
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      font-family: var(--body);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased
-    }
-
-    ::selection {
-      background: var(--green);
-      color: var(--bg)
+      padding: 1.5rem;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 28px
     }
 
-    /* PROGRESS BAR */
-    #progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--green), var(--blue));
-      z-index: 200;
-      width: 0;
-      transition: width .1s
-    }
-
-    /* MESH GRADIENT BG */
-    .mesh-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      overflow: hidden
-    }
-
-    .mesh-bg::before {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      top: -200px;
-      right: -100px;
-      background: radial-gradient(circle, rgba(0, 220, 130, .07) 0%, transparent 70%);
-      animation: meshFloat 20s ease-in-out infinite
-    }
-
-    .mesh-bg::after {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      bottom: -100px;
-      left: -100px;
-      background: radial-gradient(circle, rgba(14, 165, 233, .05) 0%, transparent 70%);
-      animation: meshFloat 25s ease-in-out infinite reverse
-    }
-
-    @keyframes meshFloat {
-
-      0%,
-      100% {
-        transform: translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform: translate(40px, 30px) scale(1.1)
-      }
-    }
-
-    /* GRID DOTS */
-    .grid-dots {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background-image: radial-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px);
-      background-size: 32px 32px
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      padding: 10px 28px;
-      border-radius: 999px;
-      background: rgba(10, 10, 15, .7);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      transition: all .4s;
-      display: flex;
-      align-items: center;
-      gap: 32px
-    }
-
-    nav.scrolled {
-      background: rgba(10, 10, 15, .9);
-      border-color: var(--border-hover);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, .3)
-    }
-
-    .nav-brand {
-      font-family: var(--heading);
-      font-weight: 800;
-      font-size: .95rem;
-      color: var(--text);
-      letter-spacing: -.5px;
-      white-space: nowrap
-    }
-
-    .nav-brand .dot {
-      color: var(--green)
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-size: .75rem;
-      font-weight: 500;
-      color: var(--dim);
-      text-decoration: none;
-      transition: color .3s;
-      letter-spacing: .5px;
-      text-transform: uppercase
-    }
-
-    .nav-links a:hover {
-      color: var(--green)
-    }
-
-    .nav-cta {
-      font-size: .75rem;
-      font-weight: 600;
-      padding: 8px 20px;
-      border-radius: 999px;
-      background: var(--green);
-      color: var(--bg);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all .3s;
-      white-space: nowrap
-    }
-
-    .nav-cta:hover {
-      box-shadow: 0 0 24px var(--green-glow);
-      transform: translateY(-1px)
-    }
-
-    .mobile-menu {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.1rem;
-      color: var(--text);
-      cursor: pointer
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 120px 0;
-      position: relative
-    }
-
-    .label {
-      font-family: var(--body);
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 20px;
-      display: inline-block
-    }
-
-    .big-title {
-      font-family: var(--heading);
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 20px
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
-    }
-
-    .sub {
-      font-size: 1rem;
-      color: var(--dim);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 48px
-    }
-
-    /* GLASS */
-    .glass {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      backdrop-filter: blur(12px);
-      transition: all .4s
-    }
-
-    .glass:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-hover)
-    }
-
-    .glass-glow:hover {
-      box-shadow: 0 0 40px var(--green-glow)
-    }
-
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 100px 0 60px
-    }
-
-    .hero-grid {
+    /* Bento Grid Layout */
+    .bento-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-badge {
+    .card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translate(-2px, -2px);
+    }
+
+    .card-dark {
+      background-color: var(--text-main);
+      color: #fff;
+    }
+    .card-dark .text-muted { color: #aaaaaa; }
+    .card-dark .border-line { border-color: #333; }
+
+    /* Grid Spanning */
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-7 { grid-column: span 7; }
+    .span-6 { grid-column: span 6; }
+    .span-5 { grid-column: span 5; }
+    .span-4 { grid-column: span 4; }
+    .span-3 { grid-column: span 3; }
+
+    @media (max-width: 1024px) {
+      .span-8, .span-7, .span-6, .span-5, .span-4, .span-3 { grid-column: span 12; }
+    }
+
+    /* Typography */
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+    p { margin-bottom: 1rem; font-size: 1.05rem; }
+    .text-muted { color: var(--text-muted); }
+    .font-mono { font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+    
+    .label {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border: 2px solid var(--border-color);
       border-radius: 999px;
-      background: var(--green-dim);
-      border: 1px solid rgba(0, 220, 130, .2);
-      font-size: .75rem;
-      font-weight: 500;
-      color: var(--green);
-      margin-bottom: 32px
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background-color: var(--bg);
+      color: var(--text-main);
+      box-shadow: 2px 2px 0px 0px var(--border-color);
+      width: fit-content;
     }
 
-    .pulse {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      position: relative
-    }
-
-    .pulse::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: var(--green);
-      opacity: .3;
-      animation: ping 2s ease-in-out infinite
-    }
-
-    @keyframes ping {
-
-      75%,
-      100% {
-        transform: scale(2.5);
-        opacity: 0
-      }
-    }
-
-    .hero-h1 {
-      font-family: var(--heading);
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -3px;
-      margin-bottom: 24px
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--dim);
-      max-width: 480px;
-      line-height: 1.8;
-      margin-bottom: 40px
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap
-    }
-
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      font-size: .85rem;
-      font-weight: 600;
-      border-radius: 999px;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 1rem;
       text-decoration: none;
-      border: none;
+      color: var(--text-main);
+      background-color: var(--card-bg);
+      box-shadow: var(--shadow-btn);
+      transition: all 0.2s ease;
       cursor: pointer;
-      transition: all .3s;
-      font-family: var(--body);
-      letter-spacing: .3px
     }
-
-    .btn-green {
-      background: var(--green);
-      color: var(--bg)
-    }
-
-    .btn-green:hover {
-      box-shadow: 0 0 30px var(--green-glow);
-      transform: translateY(-2px)
-    }
-
-    .btn-glass {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border)
-    }
-
-    .btn-glass:hover {
-      border-color: var(--green);
-      color: var(--green)
-    }
-
-    /* HERO DASHBOARD */
-    .dash {
-      position: relative;
-      min-height: 400px
-    }
-
-    .dash-card {
-      position: absolute;
-      border-radius: var(--r-sm);
-      padding: 16px 20px;
-      font-size: .78rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px
-    }
-
-    .dc1 {
-      top: 0;
-      left: 10%;
-      width: 220px;
-      animation: dfloat1 7s ease-in-out infinite
-    }
-
-    .dc2 {
-      top: 10%;
-      right: 0;
-      width: 200px;
-      animation: dfloat2 6s ease-in-out infinite
-    }
-
-    .dc3 {
-      top: 50%;
-      left: 0;
-      width: 200px;
-      animation: dfloat1 8s ease-in-out infinite .5s
-    }
-
-    .dc4 {
-      top: 55%;
-      right: 5%;
-      width: 180px;
-      animation: dfloat2 7s ease-in-out infinite .8s
-    }
-
-    .dc5 {
-      bottom: 0;
-      left: 15%;
-      width: 240px;
-      animation: dfloat1 6s ease-in-out infinite 1.2s
-    }
-
-    @keyframes dfloat1 {
-
-      0%,
-      100% {
-        transform: translateY(0)
-      }
-
-      50% {
-        transform: translateY(-10px)
-      }
-    }
-
-    @keyframes dfloat2 {
-
-      0%,
-      100% {
-        transform: translateY(0) rotate(0)
-      }
-
-      50% {
-        transform: translateY(-8px) rotate(.5deg)
-      }
-    }
-
-    .dc-label {
-      color: var(--dim);
-      font-size: .65rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 500
-    }
-
-    .dc-value {
-      font-family: var(--heading);
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--text)
-    }
-
-    .dc-value.green {
-      color: var(--green)
-    }
-
-    .dc-value.blue {
-      color: var(--blue)
-    }
-
-    .dc-value.teal {
-      color: var(--teal)
-    }
-
-    .dc-bar-row {
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      height: 40px
-    }
-
-    .dc-bar {
-      width: 10px;
-      border-radius: 3px;
-      background: var(--green);
-      opacity: .6
-    }
-
-    /* PROOF STRIP */
-    .proof {
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border)
-    }
-
-    .proof-row {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap
-    }
-
-    .proof-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .85rem;
-      color: var(--dim)
-    }
-
-    .proof-item strong {
-      font-family: var(--heading);
-      font-weight: 800;
-      color: var(--text);
-      font-size: 1rem
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 60px;
-      align-items: start
-    }
-
-    .about-text p {
-      font-size: .95rem;
-      color: var(--dim);
-      margin-bottom: 18px;
-      line-height: 1.9
-    }
-
-    .about-text strong {
-      color: var(--text);
-      font-weight: 600
-    }
-
-    .pull-quote {
-      font-family: var(--heading);
-      font-size: 1.4rem;
-      font-weight: 800;
-      line-height: 1.3;
-      color: var(--text);
-      padding: 24px 0;
-      border-left: 3px solid var(--green);
-      padding-left: 24px;
-      margin: 28px 0
-    }
-
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 12px
-    }
-
-    .stat-card {
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px
-    }
-
-    .stat-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--r-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0
-    }
-
-    .stat-card .stat-text {
-      font-size: .85rem;
-      color: var(--dim);
-      line-height: 1.5
-    }
-
-    .stat-card strong {
-      display: block;
-      color: var(--text);
-      font-family: var(--heading);
-      font-weight: 700;
-      font-size: .95rem;
-      margin-bottom: 2px
-    }
-
-    /* CASE STUDIES */
-    .case {
-      margin-bottom: 60px;
-      overflow: hidden
-    }
-
-    .case-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border-radius: var(--r);
-      overflow: hidden;
-      min-height: 400px
-    }
-
-    .case-content {
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center
+    .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-btn-hover);
     }
+    .btn-primary { background-color: var(--accent-1); }
+    .btn-full { width: 100%; }
 
-    .case-visual {
-      background: var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      position: relative;
-      overflow: hidden
+    /* Service/Skill List Styling */
+    .border-line {
+      height: 2px;
+      background-color: var(--border-color);
+      margin: 1.5rem 0;
+      width: 100%;
     }
-
-    .case-badge {
-      font-size: .65rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: inline-block
-    }
-
-    .case h3 {
-      font-family: var(--heading);
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 4px;
-      letter-spacing: -1px
-    }
-
-    .case h3 a {
-      color: var(--dim);
-      font-size: .7rem;
-      text-decoration: none;
-      margin-left: 8px;
-      transition: color .3s
-    }
-
-    .case h3 a:hover {
-      color: var(--green)
-    }
-
-    .case-loc {
-      font-size: .78rem;
-      color: var(--dim);
-      margin-bottom: 20px
-    }
-
-    .case-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px
-    }
-
-    .case-step {
-      font-size: .85rem;
-      color: var(--dim);
-      line-height: 1.7
-    }
-
-    .case-step strong {
-      color: var(--text);
-      font-weight: 600
-    }
-
-    .case-metrics-row {
-      display: flex;
-      gap: 24px
-    }
-
-    .cm {
-      text-align: center
-    }
-
-    .cm-val {
-      display: block;
-      font-family: var(--heading);
-      font-weight: 900;
-      font-size: 2.2rem;
-      line-height: 1;
-      text-shadow: 0 0 30px currentColor
-    }
-
-    .cm-lbl {
-      font-size: .62rem;
-      color: var(--dim);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 6px
-    }
-
-    /* Case visual inner elements */
-    .case-visual-metric {
-      font-family: var(--heading);
-      font-weight: 900;
-      font-size: clamp(4rem, 10vw, 8rem);
-      opacity: .2;
-      letter-spacing: -4px;
-      line-height: 1;
-      text-shadow: 0 0 60px currentColor
-    }
-
-    .case-2 {
-      margin-bottom: 60px
-    }
-
-    .case-2 .case-hero {
-      grid-template-columns: 1fr 1fr
-    }
-
-    .case-3 .case-hero {
-      grid-template-columns: 1fr
-    }
-
-    .case-3 .case-content {
-      text-align: center;
-      align-items: center;
-      max-width: 700px;
-      margin: 0 auto
-    }
-
-    .case-3 .case-metrics-row {
-      justify-content: center
-    }
-
-    /* CAPABILITIES */
-    .cap-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px
-    }
-
-    .cap-card {
-      padding: 32px;
-      cursor: default
-    }
-
-    .cap-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--r-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.15rem;
-      margin-bottom: 18px
-    }
-
-    .cap-name {
-      font-family: var(--heading);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text)
-    }
-
-    .cap-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px
-    }
-
-    .cap-pill {
-      font-size: .68rem;
-      color: var(--dim);
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid var(--border);
-      padding: 5px 12px;
-      border-radius: 20px;
-      transition: all .3s
-    }
-
-    .cap-pill:hover {
-      color: var(--green);
-      border-color: rgba(0, 220, 130, .3);
-      background: var(--green-dim)
-    }
-
-    /* IMPACT NUMBERS */
-    #impact {
-      padding: 100px 0
-    }
-
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      text-align: center
-    }
-
-    .imp-num {
-      font-family: var(--heading);
-      font-size: clamp(4.5rem, 9vw, 8rem);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -4px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 40px currentColor
-    }
-
-    .imp-label {
-      font-size: .72rem;
-      color: var(--dim);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 500
-    }
-
-    /* TIMELINE */
-    .tl {
-      position: relative;
-      padding-left: 40px;
-      max-width: 750px
-    }
-
-    .tl::before {
-      content: '';
-      position: absolute;
-      left: 8px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(180deg, var(--green), var(--blue), transparent)
-    }
-
-    .tl-item {
-      position: relative;
-      margin-bottom: 16px
-    }
-
-    .tl-dot {
-      position: absolute;
-      left: -36px;
-      top: 24px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 12px var(--green-glow)
-    }
-
-    .tl-card {
-      padding: 28px;
-      border-radius: var(--r-sm)
-    }
-
-    .tl-date {
-      font-size: .7rem;
-      font-weight: 600;
-      color: var(--green);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 6px
-    }
-
-    .tl-card h3 {
-      font-family: var(--heading);
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin-bottom: 2px;
-      letter-spacing: -.5px
-    }
-
-    .tl-role {
-      font-size: .82rem;
-      color: var(--teal);
-      font-weight: 500;
-      margin-bottom: 14px
-    }
-
-    .tl-list {
+    .skill-list {
       list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px 20px
+      margin-bottom: 2rem;
+      flex-grow: 1;
     }
-
-    .tl-list li {
-      font-size: .78rem;
-      color: var(--dim);
-      padding-left: 14px;
+    .skill-list li {
       position: relative;
-      line-height: 1.6
+      padding-left: 1.8rem;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+      font-size: 1.05rem;
     }
-
-    .tl-list li::before {
-      content: '';
+    .skill-list li::before {
+      content: '→';
       position: absolute;
       left: 0;
-      top: 8px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--green);
-      opacity: .5
+      color: var(--accent-3);
+      font-weight: 800;
+      font-family: var(--font-mono);
     }
-
-    .tl-list li strong {
-      color: var(--text);
-      font-weight: 600
-    }
-
-    /* CREDENTIALS */
-    .creds-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px
-    }
-
-    .cred {
+    
+    .skill-icon {
+      width: 56px;
+      height: 56px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      font-size: .78rem;
-      color: var(--dim);
-      border-radius: 999px
-    }
-
-    .cred i {
-      color: var(--green);
-      font-size: .8rem
-    }
-
-    .cred strong {
-      color: var(--text);
-      font-weight: 600
-    }
-
-    /* CTA */
-    #cta {
-      text-align: center;
-      padding: 140px 0 80px
-    }
-
-    .cta-h {
-      font-family: var(--heading);
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 900;
-      letter-spacing: -2px;
-      margin-bottom: 16px;
-      line-height: 1.05
-    }
-
-    .cta-btns {
-      display: flex;
       justify-content: center;
-      gap: 12px;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--bg);
+      box-shadow: 2px 2px 0px 0px var(--border-color);
+    }
+
+    /* Case Study styling */
+    .case-card {
+      padding: 0;
+    }
+    .case-img-placeholder {
+      height: 240px;
+      border-bottom: 2px solid var(--border-color);
+      background-image: repeating-linear-gradient(45deg, #e5e5e5 25%, transparent 25%, transparent 75%, #e5e5e5 75%, #e5e5e5), repeating-linear-gradient(45deg, #e5e5e5 25%, var(--bg) 25%, var(--bg) 75%, #e5e5e5 75%, #e5e5e5);
+      background-position: 0 0, 10px 10px;
+      background-size: 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .case-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .case-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 48px
     }
-
-    .reloc {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      border-radius: var(--r);
-      text-align: left;
-      border: 1px solid rgba(0, 220, 130, .2);
-      background: var(--green-dim)
-    }
-
-    .reloc i {
-      font-size: 1.6rem;
-      color: var(--green);
-      flex-shrink: 0
-    }
-
-    .reloc p {
-      font-size: .85rem;
-      color: var(--dim);
-      line-height: 1.7
-    }
-
-    .reloc strong {
-      color: var(--text)
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center
-    }
-
-    footer p {
-      font-size: .7rem;
-      color: var(--muted);
-      letter-spacing: .5px
-    }
-
-    /* REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .7s ease, transform .7s ease
-    }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity .5s ease, transform .5s ease
-    }
-
-    .reveal-stagger {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .5s ease, transform .5s ease
-    }
-
-    .revealed {
-      opacity: 1 !important;
-      transform: translate(0) !important
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:1024px) {
-
-      .hero-grid,
-      .about-grid {
-        grid-template-columns: 1fr
-      }
-
-      .dash {
-        min-height: 300px
-      }
-
-      .case-hero {
-        grid-template-columns: 1fr !important
-      }
-
-      .case-visual {
-        min-height: 200px
-      }
-
-      .cap-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .impact-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px
-      }
-
-      .tl-list {
-        grid-template-columns: 1fr
-      }
-    }
-
-    /* BRANDS MARQUEE */
-    .brands {
-      padding: 48px 0;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border)
-    }
-
-    .brands .label {
-      text-align: center;
-      display: block;
-      margin-bottom: 24px
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 12px;
-      animation: marquee 40s linear infinite;
-      width: max-content
-    }
-
-    .marquee-track:hover {
-      animation-play-state: paused
-    }
-
-    .brand-chip {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
+    .tag {
+      padding: 0.25rem 0.75rem;
+      border: 2px solid var(--border-color);
       border-radius: 999px;
-      font-size: .78rem;
-      font-weight: 500;
-      color: var(--dim);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      white-space: nowrap;
-      transition: all .3s;
-      cursor: default;
-      flex-shrink: 0
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      background: var(--bg);
+    }
+    .metric-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px dashed var(--border-color);
+    }
+    .metric-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      display: block;
+      line-height: 1.1;
+    }
+    .metric-label {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
     }
 
-    .brand-chip:hover {
-      color: var(--green);
-      border-color: rgba(0, 220, 130, .3);
-      background: var(--green-dim)
+    /* Top Marquee */
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      background-color: var(--card-bg);
+      padding: 1rem 0;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .marquee-content {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+    .marquee-item {
+      padding: 0 2rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .marquee-item::after {
+      content: '✦';
+      color: var(--text-main);
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    /* Section Headers */
+    .section-header {
+      padding: 2rem 0 1rem;
     }
 
-    .brand-chip .flag {
-      font-style: normal;
-      font-size: .85rem
+    /* Custom Timeline */
+    .timeline-item {
+      border-left: 2px solid var(--border-color);
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background: var(--accent-1);
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
     }
 
-    @keyframes marquee {
-      0% {
-        transform: translateX(0)
-      }
-
-      100% {
-        transform: translateX(-50%)
-      }
-    }
-
-    @media(max-width:640px) {
-      section {
-        padding: 80px 0
-      }
-
-      nav {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        transform: none;
-        width: auto;
-        padding: 10px 16px
-      }
-
-      .nav-links {
-        display: none
-      }
-
-      .mobile-menu {
-        display: block
-      }
-
-      .hero-h1 {
-        font-size: clamp(2.4rem, 10vw, 3.4rem);
-        letter-spacing: -2px
-      }
-
-      .hero-btns {
-        flex-direction: column
-      }
-
-      .hero-btns .btn {
-        width: 100%;
-        justify-content: center
-      }
-
-      .proof-row {
-        flex-direction: column;
-        gap: 16px;
-        align-items: center
-      }
-
-      .dash-card {
-        position: relative !important;
-        animation: none !important;
-        width: 100% !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important
-      }
-
-      .dash {
-        display: grid;
-        gap: 8px;
-        min-height: auto
-      }
-
-      .case-content {
-        padding: 28px
-      }
-
-      .cap-grid,
-      .impact-grid {
-        grid-template-columns: 1fr
-      }
-
-      .imp-num {
-        font-size: clamp(3rem, 15vw, 5rem)
-      }
-
-      .cta-btns {
-        flex-direction: column;
-        align-items: center
-      }
-
-      .cta-btns .btn {
-        width: 100%;
-        justify-content: center
-      }
-
-      .reloc {
-        flex-direction: column;
-        text-align: center
-      }
-
-      .case-metrics-row {
-        flex-wrap: wrap;
-        gap: 12px
-      }
-    }
   </style>
 </head>
-
 <body>
-  <div class="mesh-bg"></div>
-  <div class="grid-dots"></div>
-  <div id="progress"></div>
 
-  <nav id="mainNav">
-    <div class="nav-brand">jay<span class="dot">.</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#cases">Work</a></li>
-      <li><a href="#capabilities">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-    </ul>
-    <a href="mailto:jworkmail35@gmail.com" class="nav-cta">Get In Touch</a>
-    <button class="mobile-menu" id="mobileMenu"><i class="fa-solid fa-bars"></i></button>
-  </nav>
+  <div class="container">
+    
+    <!-- Top Nav / Marquee -->
+    <div class="marquee">
+      <div class="marquee-content">
+        <div class="marquee-item">Ecommerce Management</div>
+        <div class="marquee-item">Ecommerce Growth</div>
+        <div class="marquee-item">Shopify Expert</div>
+        <div class="marquee-item">Digital Marketing</div>
+        <div class="marquee-item">AI Automation</div>
+        <div class="marquee-item">Conversion Optimization</div>
+        <!-- Duplicate for infinite scroll -->
+        <div class="marquee-item">Ecommerce Management</div>
+        <div class="marquee-item">Ecommerce Growth</div>
+        <div class="marquee-item">Shopify Expert</div>
+        <div class="marquee-item">Digital Marketing</div>
+        <div class="marquee-item">AI Automation</div>
+        <div class="marquee-item">Conversion Optimization</div>
+      </div>
+    </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <div class="hero-badge reveal">
-            <div class="pulse"></div>Open to NZ opportunities
+    <!-- MAIN HERO BENTO -->
+    <div class="bento-grid">
+      
+      <!-- HERO (Span 8) -->
+      <div class="card span-8">
+        <div class="label" style="background-color: var(--accent-2); color: #fff;"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Available for new roles</div>
+        <h1 style="margin-top: 1rem;">I build growth systems.</h1>
+        <p style="font-size: 1.3rem; max-width: 600px; margin-bottom: 2rem; color: var(--text-muted); line-height: 1.5;">
+          <strong>Jay Odedra</strong> — Fractional Head of Ecommerce & Shopify Partner. 6+ years running the end-to-end digital operations for 50+ global consumer brands through development, paid media, and SEO.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto;">
+          <a href="#work" class="btn btn-primary">See My Work <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="Jay%20Odedra%20Updated%20CV.pdf" download class="btn">Download CV <i class="fa-solid fa-download"></i></a>
+        </div>
+      </div>
+
+      <!-- ABOUT (Span 4) -->
+      <div class="card span-4 card-dark">
+        <div class="label" style="background-color: transparent; color: #fff; border-color: #fff;">About Me</div>
+        <p style="font-size: 1.1rem; line-height: 1.7; flex-grow: 1;">
+          Six years ago I founded Flickkon Digital Agency. What started as Shopify builds quickly evolved into operating as a <strong>Fractional Head of Ecommerce</strong> for flagship accounts. I integrated deeply with internal teams to manage daily trading, promotional calendars, and digital strategy.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #ccc;">
+          Because I’ve built and run an agency, I know exactly how to evaluate and manage external agency partners to get maximum ROI. Now, I want to take this operational expertise <strong>in-house</strong> to make one team the best-performing version of itself.
+        </p>
+      </div>
+
+      <!-- METRICS (Span 12) -->
+      <div class="card span-12" style="background-color: var(--bg); padding: 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div style="padding: 2.5rem; border-right: 2px solid var(--border-color); border-bottom: 2px solid var(--border-color);">
+            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-4);">50+</div>
+            <div class="font-mono">Brands Scaled</div>
           </div>
-          <h1 class="hero-h1 reveal">I grow<br><span class="gradient-text">ecommerce</span><br>brands.</h1>
-          <p class="hero-desc reveal">Shopify Expert Partner with 6+ years scaling AU & NZ consumer brands through
-            development, paid media, CRO, and AI automation.</p>
-          <div class="hero-btns reveal">
-            <a href="#cases" class="btn btn-green"><i class="fa-solid fa-arrow-down"></i>See my work</a>
-            <a href="Jay%20Odedra%20Updated%20CV.pdf" download class="btn btn-glass"><i
-                class="fa-solid fa-file-arrow-down"></i>Download CV</a>
+          <div style="padding: 2.5rem; border-right: 2px solid var(--border-color); border-bottom: 2px solid var(--border-color);">
+            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-3);">4×</div>
+            <div class="font-mono">Avg ROAS</div>
+          </div>
+          <div style="padding: 2.5rem; border-right: 2px solid var(--border-color); border-bottom: 2px solid var(--border-color);">
+            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-2);">4.5%</div>
+            <div class="font-mono">Conv. Rate</div>
+          </div>
+          <div style="padding: 2.5rem; border-bottom: 2px solid var(--border-color);">
+            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-1);">$80K+</div>
+            <div class="font-mono">NZD/mo Ad Spend</div>
           </div>
         </div>
-        <div class="dash">
-          <div class="dash-card glass dc1">
-            <div class="dc-label">Monthly Revenue</div>
-            <div class="dc-bar-row">
-              <div class="dc-bar" style="height:14px"></div>
-              <div class="dc-bar" style="height:20px"></div>
-              <div class="dc-bar" style="height:16px"></div>
-              <div class="dc-bar" style="height:28px"></div>
-              <div class="dc-bar" style="height:22px"></div>
-              <div class="dc-bar" style="height:34px"></div>
-              <div class="dc-bar" style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- SKILLS SECTION (Styled like Services) -->
+    <div class="section-header">
+      <h2 style="font-size: 2.5rem; letter-spacing: -0.05em; margin-bottom: 0.5rem; text-transform: uppercase;">Capabilities</h2>
+      <p class="text-muted" style="font-size: 1.2rem;">A full-stack growth skill set in one person. Bridging strategy and execution, end-to-end.</p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Skill 1 -->
+      <div class="card span-4">
+        <div class="skill-icon" style="background-color: var(--accent-2);"><i class="fa-brands fa-shopify"></i></div>
+        <h3>Shopify Development</h3>
+        <p class="text-muted font-mono">Expert Partner • 50+ Stores</p>
+        <div class="border-line"></div>
+        <ul class="skill-list">
+          <li>Custom theme builds</li>
+          <li>Liquid programming</li>
+          <li>App integrations & setup</li>
+          <li>Checkout CRO</li>
+          <li>Site speed auditing</li>
+        </ul>
+        <a href="#work" class="btn btn-full">See related work</a>
+      </div>
+
+      <!-- Skill 2 -->
+      <div class="card span-4">
+        <div class="skill-icon" style="background-color: var(--accent-3);"><i class="fa-solid fa-chart-line" style="color: #fff;"></i></div>
+        <h3>Paid Media</h3>
+        <p class="text-muted font-mono">4× Average ROAS Portfolio</p>
+        <div class="border-line"></div>
+        <ul class="skill-list">
+          <li>Google Ads (Search, Shopping, PMax)</li>
+          <li>Meta Ads (Facebook & Instagram)</li>
+          <li>TikTok Ads full funnel</li>
+          <li>Creative briefs & ad copy</li>
+          <li>ROAS optimization & scaling</li>
+        </ul>
+        <a href="#work" class="btn btn-full">See related work</a>
+      </div>
+
+      <!-- Skill 3 -->
+      <div class="card span-4">
+        <div class="skill-icon" style="background-color: var(--accent-4);"><i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i></div>
+        <h3>SEO & Content</h3>
+        <p class="text-muted font-mono">2–3× Organic Traffic Baseline</p>
+        <div class="border-line"></div>
+        <ul class="skill-list">
+          <li>Technical SEO audits</li>
+          <li>Keyword mapping & strategy</li>
+          <li>AI-assisted content pipelines</li>
+          <li>Organic traffic scaling</li>
+          <li>Product schema implementation</li>
+        </ul>
+        <a href="#work" class="btn btn-full">See related work</a>
+      </div>
+
+      <!-- Skill 4 -->
+      <div class="card span-6">
+        <div class="skill-icon" style="background-color: var(--accent-1);"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Email & Retention</h3>
+        <p class="text-muted font-mono">Klaviyo Expert</p>
+        <div class="border-line"></div>
+        <ul class="skill-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem;">
+          <li>Klaviyo account setup & audit</li>
+          <li>Core automation flows</li>
+          <li>Advanced segmentation</li>
+          <li>Winback & cross-sell sequences</li>
+        </ul>
+      </div>
+
+      <!-- Skill 5 -->
+      <div class="card span-6">
+        <div class="skill-icon" style="background-color: var(--accent-5);"><i class="fa-solid fa-robot" style="color:#fff;"></i></div>
+        <h3>AI & Automation</h3>
+        <p class="text-muted font-mono">Lean Team Efficiency</p>
+        <div class="border-line"></div>
+        <ul class="skill-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem;">
+          <li>n8n & Zapier workflows</li>
+          <li>GPT-powered data processing</li>
+          <li>Automated reporting dashboards</li>
+          <li>Complex system integrations</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- CASE STUDIES SECTION -->
+    <div class="section-header" id="work">
+      <h2>Selected Works</h2>
+      <p class="text-muted" style="font-size: 1.2rem;">Real brands. Real results. Deep-dives from client work.</p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Case 1 (Span 12) Featured -->
+      <div class="card span-12 case-card" style="flex-direction: row; flex-wrap: wrap;">
+        <div class="case-img-placeholder" style="flex: 1; min-width: 300px; height: auto; border-bottom: none; border-right: 2px solid var(--border-color); background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.19.02_2x_Medium_98c701cd-ecd4-4828-9f97-64956b7df5ff.png?v=1778256984'); background-size: cover; background-position: center top;">
+        </div>
+        <div class="case-content" style="flex: 1; min-width: 350px;">
+          <div class="case-tags">
+            <span class="tag" style="background-color: var(--accent-1);">Luxury Furniture</span>
+            <span class="tag">Melbourne, AU</span>
+          </div>
+          <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">Gainsville</h3>
+          <p class="text-muted" style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Problem:</strong> Slow load times, low mobile conversion rate, disjointed UX.</p>
+          <p class="text-muted" style="font-size: 1.1rem;"><strong>Action:</strong> Rebuilt the Shopify theme mobile-first. Lazy-loaded imagery, streamlined checkout, trust signal architecture, speed audit.</p>
+          
+          <div class="metric-box">
+            <div>
+              <span class="metric-value" style="color: var(--accent-2);">+38%</span>
+              <span class="metric-label">Mobile Revenue</span>
             </div>
-            <div class="dc-value green">+38% <span style="font-size:.65rem;color:var(--dim)">MoM</span></div>
+            <div>
+              <span class="metric-value">-2.1s</span>
+              <span class="metric-label">Load Time</span>
+            </div>
+            <div>
+              <span class="metric-value">-24%</span>
+              <span class="metric-label">Bounce Rate</span>
+            </div>
           </div>
-          <div class="dash-card glass dc2">
-            <div class="dc-label">ROAS</div>
-            <div class="dc-value blue" style="font-size:2rem">4.2×</div>
-            <div style="font-size:.65rem;color:var(--dim)">Google + Meta Ads</div>
+        </div>
+      </div>
+
+      <!-- Case 2 (Span 6) -->
+      <div class="card span-6 case-card">
+        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.55.00_2x_Medium_b553cbac-37c1-4918-8d6f-93c1561ae5c9.png?v=1778257804'); background-size: cover; background-position: center top;">
+        </div>
+        <div class="case-content">
+          <div class="case-tags">
+            <span class="tag" style="background-color: var(--accent-3); color: #fff;">Luxury Fashion</span>
+            <span class="tag">US / Global</span>
           </div>
-          <div class="dash-card glass dc3">
-            <div class="dc-label">Conversion Rate</div>
-            <div class="dc-value green" style="font-size:2rem">4.5%</div>
-            <div style="font-size:.65rem;color:var(--dim)">vs 2.3% industry avg</div>
+          <h3>Heiress Beverly Hills</h3>
+          <p class="text-muted" style="font-size: 1rem; margin-bottom: 1rem;">One-year engagement managing CRO, custom page design, and bespoke integrations for a premium women's ready-to-wear brand.</p>
+          <ul class="text-muted" style="font-size: 0.95rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.5;">
+            <li><strong>CRO & Layouts:</strong> Redesigned collections and PDPs to reduce friction and elevate the luxury aesthetic.</li>
+            <li><strong>Custom Design:</strong> Built refined, premium page designs balancing high-end branding with commercial usability.</li>
+            <li><strong>Integrations:</strong> Extended Shopify's native functionality with bespoke third-party tool connections.</li>
+          </ul>
+          <div class="metric-box" style="margin-top: auto;">
+            <div><span class="metric-value" style="color: var(--accent-3);">1 Yr</span><span class="metric-label">Engagement</span></div>
+            <div><span class="metric-value">Premium</span><span class="metric-label">UX Design</span></div>
+            <div><span class="metric-value">Custom</span><span class="metric-label">Integrations</span></div>
           </div>
-          <div class="dash-card glass dc4">
-            <div class="dc-label">Active Stores</div>
-            <div class="dc-value" style="font-size:2rem">12</div>
-            <div style="font-size:.65rem;color:var(--dim)">AU/NZ accounts</div>
+        </div>
+      </div>
+
+      <!-- Case 3 (Span 6) -->
+      <div class="card span-6 case-card">
+        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.48.50_2x_Medium_fb2cf065-dee6-4f58-a6b3-8f811570fb45.png?v=1778257173'); background-size: cover; background-position: center top;">
+        </div>
+        <div class="case-content">
+          <div class="case-tags">
+            <span class="tag" style="background-color: var(--accent-4); color: #fff;">Equestrian Retail</span>
+            <span class="tag">Global</span>
           </div>
-          <div class="dash-card glass dc5">
-            <div class="dc-label"><i class="fa-brands fa-shopify" style="color:#7ab55c;margin-right:4px"></i>Shopify
-              Expert Partner</div>
-            <div style="font-size:.75rem;color:var(--dim)">Certified since 2020 · 50+ stores built</div>
+          <h3>Equestroom</h3>
+          <p class="text-muted" style="font-size: 1rem; margin-bottom: 1rem;">Two-year engagement managing Shopify ecommerce, SEO, CRO, and site speed for an international equestrian retailer.</p>
+          <ul class="text-muted" style="font-size: 0.95rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.5;">
+            <li><strong>Speed:</strong> Rebuilt theme code, taking PageSpeed from 30 to 87.</li>
+            <li><strong>SEO:</strong> Full technical and content overhaul; hit top 5 pages for targets.</li>
+            <li><strong>CRO:</strong> Redesigned collections & PDPs, lifting conversion rate by 1.5%.</li>
+            <li><strong>Ops:</strong> Managed ongoing merchandising and product uploads.</li>
+          </ul>
+          <div class="metric-box" style="margin-top: auto;">
+            <div><span class="metric-value" style="color: var(--accent-4);">30→87</span><span class="metric-label">PageSpeed</span></div>
+            <div><span class="metric-value">+1.5%</span><span class="metric-label">Conv. Rate</span></div>
+            <div><span class="metric-value">Top 5</span><span class="metric-label">SEO Ranks</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 4 (Span 6) MADE FREE -->
+      <div class="card span-6 case-card">
+        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.19.25_2x_Medium_1b8a1474-dd14-4113-a5df-8e3fd90a0b67.png?v=1778256974'); background-size: cover; background-position: center top;">
+        </div>
+        <div class="case-content">
+          <div class="case-tags">
+            <span class="tag" style="background-color: var(--accent-2); color: #fff;">Sustainable DTC</span>
+            <span class="tag">US / Global</span>
+          </div>
+          <h3>MADE FREE®</h3>
+          <p class="text-muted" style="font-size: 1rem;">Three-year engagement managing CRO, UX, site speed and SEO. Revamped product pages to focus on impact and purpose, significantly increasing trust.</p>
+          <div class="metric-box" style="margin-top: auto;">
+            <div><span class="metric-value" style="color: var(--accent-2);">+2%</span><span class="metric-label">Conv. Lift</span></div>
+            <div><span class="metric-value">3 Yrs</span><span class="metric-label">Engagement</span></div>
+            <div><span class="metric-value">UX</span><span class="metric-label">Improved</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 5 (Span 6) Ativafit -->
+      <div class="card span-6 case-card">
+        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.19.41_2x_Medium_c91ddd3d-2e82-424b-9111-214e01f82249.png?v=1778256978'); background-size: cover; background-position: center top;">
+        </div>
+        <div class="case-content">
+          <div class="case-tags">
+            <span class="tag" style="background-color: var(--accent-5); color: #fff;">Fitness DTC</span>
+            <span class="tag">US / Global</span>
+          </div>
+          <h3>Ativafit</h3>
+          <p class="text-muted" style="font-size: 1rem;">Onsite and offsite SEO, blog content strategy, and CRO. Took the brand from barely visible to ranking on the first page for high-intent terms.</p>
+          <div class="metric-box" style="margin-top: auto;">
+            <div><span class="metric-value" style="color: var(--accent-5);">Page 1</span><span class="metric-label">Rankings</span></div>
+            <div><span class="metric-value">High</span><span class="metric-label">Search Intent</span></div>
+            <div><span class="metric-value">CRO</span><span class="metric-label">Optimized</span></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- PROOF STRIP -->
-  <div class="proof">
-    <div class="container">
-      <div class="proof-row">
-        <div class="proof-item"><strong>50+</strong> brands scaled</div>
-        <div class="proof-item"><strong>4×</strong> average ROAS</div>
-        <div class="proof-item"><strong>4.5%</strong> conversion rate</div>
-        <div class="proof-item"><strong>20+</strong> AU/NZ clients</div>
-        <div class="proof-item"><strong>$80K+</strong> NZD/mo managed</div>
+
+    <!-- EXPERIENCE & CREDENTIALS -->
+    <div class="bento-grid">
+      <!-- Journey (Span 6) -->
+      <div class="card span-6">
+        <div class="label">Timeline</div>
+        <h2>Journey</h2>
+        <div class="border-line"></div>
+        
+        <div class="timeline-item">
+          <span class="font-mono text-muted">2019-Present</span>
+          <h3 style="margin-top: 0.5rem;">Founder & Director</h3>
+          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Flickkon Digital Agency</p>
+          <p class="text-muted">Built and scaled a full-service Shopify and digital marketing agency from zero. Managing 12 brands simultaneously across 7 global markets.</p>
+        </div>
+        
+        <div class="timeline-item">
+          <span class="font-mono text-muted">2020-2023</span>
+          <h3 style="margin-top: 0.5rem;">Head of E-commerce</h3>
+          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Multiple Client Brands</p>
+          <p class="text-muted">Embedded growth lead for flagship accounts. Owned strategy, execution, and reporting across all digital channels.</p>
+        </div>
+        
+        <div class="timeline-item">
+          <span class="font-mono text-muted">2018-2019</span>
+          <h3 style="margin-top: 0.5rem;">Ecommerce Manager</h3>
+          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Decaf Media · Part-time</p>
+          <p class="text-muted">Managed e-commerce operations, store updates, and performance optimization.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="font-mono text-muted">2018-2019</span>
+          <h3 style="margin-top: 0.5rem;">Digital Marketing Coordinator</h3>
+          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Retail & Lifestyle Brands</p>
+          <p class="text-muted">Social media management, content production, ad campaigns for retail and lifestyle brands.</p>
+        </div>
+      </div>
+
+      <!-- Credentials (Span 6) -->
+      <div class="card span-6">
+        <div class="label" style="background-color: var(--accent-3); color: #fff; border-color: var(--accent-3);">Certifications</div>
+        <h2>Credentials</h2>
+        <div class="border-line"></div>
+        
+        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
+          <i class="fa-brands fa-shopify fa-3x" style="color: var(--accent-2);"></i>
+          <div>
+            <h3 style="margin: 0;">Shopify Expert Partner</h3>
+            <span class="text-muted font-mono">Certified since 2020 · 50+ stores</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
+          <i class="fa-brands fa-google fa-3x" style="color: var(--accent-3);"></i>
+          <div>
+            <h3 style="margin: 0;">Google Ads Certified</h3>
+            <span class="text-muted font-mono">Search · Shopping · PMax</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
+          <i class="fa-brands fa-meta fa-3x" style="color: var(--accent-1);"></i>
+          <div>
+            <h3 style="margin: 0;">Meta Blueprint</h3>
+            <span class="text-muted font-mono">Media Buying · Creative</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
+          <i class="fa-solid fa-envelope fa-3x" style="color: var(--accent-4);"></i>
+          <div>
+            <h3 style="margin: 0;">Klaviyo Expert</h3>
+            <span class="text-muted font-mono">Email automation & flows</span>
+          </div>
+        </div>
       </div>
     </div>
+
+
+    <!-- CONTACT (Span 12) -->
+    <div class="bento-grid" style="margin-top: 3rem;">
+      <div class="card span-12" style="background-color: var(--accent-1); text-align: center; padding: 4rem 2rem;">
+        <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; max-width: 800px; margin-inline: auto; line-height: 1.1;">Let's talk about what we can build together.</h2>
+        <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-main); font-weight: 500;">
+          I respond within 24 hours. No fluff, just a genuine conversation about whether we're the right fit.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="mailto:jworkmail35@gmail.com" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
+            <i class="fa-solid fa-paper-plane"></i> jworkmail35@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/jayodedra" target="_blank" class="btn" style="padding: 1rem; width: 60px;">
+            <i class="fa-brands fa-linkedin-in" style="font-size: 1.2rem;"></i>
+          </a>
+          <a href="Jay%20Odedra%20Updated%20CV.pdf" download class="btn" style="padding: 1rem; width: 60px;">
+            <i class="fa-solid fa-file-pdf" style="font-size: 1.2rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <footer style="text-align: center; padding: 2rem 0 1rem; margin-top: 1rem;">
+      <p class="font-mono" style="font-weight: 700; font-size: 1rem;">© 2026 JAY ODEDRA. ALL RIGHTS RESERVED.</p>
+    </footer>
+
   </div>
 
-  <!-- BRANDS -->
-  <div class="brands">
-    <div class="container">
-      <div class="label">Brands I've Worked With</div>
-    </div>
-    <div class="marquee-track">
-      <div class="brand-chip"><span class="flag">🇳🇿</span>Wild Dispensary NZ</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Gainsville AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Australian Bone Broth Co</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Keshet Design AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Metal Decor AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Arkitribe AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Little Love Co AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Her Apparel AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Eclectic House AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>The Pink Treatment AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Cadelle Leather AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Big On Shoes AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Zaphire AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>MuShop AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Mrs Edgar AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Wow Baby AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Corfu Jeans AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Fansee AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Keoji AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>JA2Go AU</div>
-      <!-- Duplicate for seamless loop -->
-      <div class="brand-chip"><span class="flag">🇳🇿</span>Wild Dispensary NZ</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Gainsville AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Australian Bone Broth Co</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Keshet Design AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Metal Decor AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Arkitribe AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Little Love Co AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Her Apparel AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Eclectic House AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>The Pink Treatment AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Cadelle Leather AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Big On Shoes AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Zaphire AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>MuShop AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Mrs Edgar AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Wow Baby AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Corfu Jeans AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Fansee AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>Keoji AU</div>
-      <div class="brand-chip"><span class="flag">🇦🇺</span>JA2Go AU</div>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="label reveal-left">About</div>
-      <div class="big-title reveal">The person behind<br><span class="gradient-text">the growth</span></div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p><strong>Shopify Expert Partner</strong> and ecommerce growth strategist with 6+ years scaling AU and NZ
-            consumer brands. Now looking to bring that experience in-house, working inside a single team rather than
-            across many.</p>
-          <div class="pull-quote">"Six years managing twelve brands at once teaches you one thing: the system matters
-            more than the campaign."</div>
-          <p>As founder of <strong style="color:var(--green)">Flickkon Digital Agency</strong>, I've managed 50+ brand
-            partnerships across 7 markets. I sit at the intersection of <strong>development, marketing, and AI
-              automation</strong>, building Shopify stores that convert at 2× the industry average while reducing
-            content workload by 60% through GPT-powered workflows.</p>
-        </div>
-        <div class="about-stats">
-          <div class="glass stat-card reveal-stagger">
-            <div class="stat-icon" style="background:var(--green-dim);color:var(--green)"><i
-                class="fa-brands fa-shopify"></i></div>
-            <div class="stat-text"><strong>Shopify Expert Partner</strong>Certified since 2020 · 50+ stores</div>
-          </div>
-          <div class="glass stat-card reveal-stagger" style="transition-delay:80ms">
-            <div class="stat-icon" style="background:var(--blue-glow);color:var(--blue)"><i
-                class="fa-solid fa-earth-americas"></i></div>
-            <div class="stat-text"><strong>7+ Global Markets</strong>AU, NZ, UK, USA, Canada, EU, Japan</div>
-          </div>
-          <div class="glass stat-card reveal-stagger" style="transition-delay:160ms">
-            <div class="stat-icon" style="background:rgba(45,212,191,.08);color:var(--teal)"><i
-                class="fa-solid fa-robot"></i></div>
-            <div class="stat-text"><strong>AI-Powered Workflows</strong>n8n, Zapier, GPT automation</div>
-          </div>
-          <div class="glass stat-card reveal-stagger" style="transition-delay:240ms">
-            <div class="stat-icon" style="background:rgba(251,113,133,.08);color:var(--rose)"><i
-                class="fa-solid fa-users"></i></div>
-            <div class="stat-text"><strong>Team of 6</strong>Design, dev, paid media, content</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDIES -->
-  <section id="cases">
-    <div class="container">
-      <div class="label reveal-left">Case Studies</div>
-      <div class="big-title reveal">Real brands.<br><span class="gradient-text">Real results.</span></div>
-      <div class="sub reveal">Deep-dive case studies from client partnerships. Problem → action → outcome, backed by
-        data.</div>
-
-      <!-- CASE 1: Gainsville -->
-      <div class="case reveal">
-        <div class="case-hero glass">
-          <div class="case-content">
-            <div class="case-badge" style="color:var(--green)">Luxury Furniture</div>
-            <h3>Gainsville <a href="https://gainsville.com.au" target="_blank"><i
-                  class="fa-solid fa-arrow-up-right-from-square"></i></a></h3>
-            <p class="case-loc">Melbourne, Australia</p>
-            <div class="case-steps">
-              <p class="case-step"><strong>Problem:</strong> Low mobile conversion on premium furniture. Slow loads,
-                clunky checkout losing high-value buyers.</p>
-              <p class="case-step"><strong>Action:</strong> Rebuilt Shopify theme with mobile-first UX, lazy-loaded
-                imagery, streamlined checkout + trust signals.</p>
-              <p class="case-step"><strong>Result:</strong> +38% mobile revenue, 2.1s faster load, 24% less bounce.</p>
-            </div>
-            <div class="case-metrics-row">
-              <div class="cm"><span class="cm-val" style="color:var(--green)">+38%</span><span
-                  class="cm-lbl">Revenue</span></div>
-              <div class="cm"><span class="cm-val" style="color:var(--teal)">-2.1s</span><span class="cm-lbl">Load
-                  Time</span></div>
-              <div class="cm"><span class="cm-val" style="color:var(--blue)">-24%</span><span
-                  class="cm-lbl">Bounce</span></div>
-            </div>
-          </div>
-          <div class="case-visual">
-            <div class="case-visual-metric" style="color:var(--green)">+38%</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE 2: Metal Decor -->
-      <div class="case case-2 reveal">
-        <div class="case-hero glass">
-          <div class="case-visual">
-            <div class="case-visual-metric" style="color:var(--blue)">2.4×</div>
-          </div>
-          <div class="case-content">
-            <div class="case-badge" style="color:var(--blue)">Home & Garden</div>
-            <h3>Metal Decor Australia <a href="https://www.metaldecor.com.au" target="_blank"><i
-                  class="fa-solid fa-arrow-up-right-from-square"></i></a></h3>
-            <p class="case-loc">Australia-wide</p>
-            <div class="case-steps">
-              <p class="case-step"><strong>Problem:</strong> Beautiful corten steel products, poor online visibility.
-                Organic traffic minimal, paid ads eating margins.</p>
-              <p class="case-step"><strong>Action:</strong> Full SEO overhaul: technical audit, keyword-mapped
-                collections, product schema, homeowner-intent content strategy.</p>
-              <p class="case-step"><strong>Result:</strong> 2.4× organic traffic in 8 months. Page 1 rankings for key
-                product terms.</p>
-            </div>
-            <div class="case-metrics-row">
-              <div class="cm"><span class="cm-val" style="color:var(--green)">2.4×</span><span
-                  class="cm-lbl">Organic</span></div>
-              <div class="cm"><span class="cm-val" style="color:var(--teal)">8mo</span><span
-                  class="cm-lbl">Timeline</span></div>
-              <div class="cm"><span class="cm-val" style="color:var(--blue)">Pg 1</span><span
-                  class="cm-lbl">Rankings</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE 3: Bone Broth -->
-      <div class="case case-3 reveal">
-        <div class="case-hero glass" style="padding:48px">
-          <div class="case-content">
-            <div class="case-badge" style="color:var(--teal)">Health & Wellness</div>
-            <h3>Australian Bone Broth Co <a href="https://www.australianbonebrothco.com.au" target="_blank"><i
-                  class="fa-solid fa-arrow-up-right-from-square"></i></a></h3>
-            <p class="case-loc">AU / NZ</p>
-            <div class="pull-quote" style="border-color:var(--teal);font-size:1.2rem;margin:20px 0">3× organic traffic.
-              60% less workload. 4× content output.</div>
-            <div class="case-steps" style="text-align:left;max-width:560px">
-              <p class="case-step"><strong>Problem:</strong> Great product-market fit but sluggish growth. Manual,
-                time-consuming content production stretching the team.</p>
-              <p class="case-step"><strong>Action:</strong> Built AI content pipelines (n8n + GPT), implemented GA4,
-                Klaviyo flows, and targeted SEO campaigns.</p>
-            </div>
-            <div class="case-metrics-row" style="margin-top:24px">
-              <div class="cm"><span class="cm-val" style="color:var(--green)">3×</span><span
-                  class="cm-lbl">Traffic</span></div>
-              <div class="cm"><span class="cm-val" style="color:var(--teal)">-60%</span><span
-                  class="cm-lbl">Workload</span></div>
-              <div class="cm"><span class="cm-val" style="color:var(--blue)">4×</span><span
-                  class="cm-lbl">Content</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CAPABILITIES -->
-  <section id="capabilities">
-    <div class="container">
-      <div class="label reveal-left">Capabilities</div>
-      <div class="big-title reveal">What I bring<br><span class="gradient-text">to the table</span></div>
-      <div class="sub reveal">Full-spectrum ecommerce expertise honed across 50+ brand partnerships.</div>
-      <div class="cap-grid">
-        <div class="glass cap-card glass-glow reveal-stagger">
-          <div class="cap-icon" style="background:var(--green-dim);color:var(--green)"><i
-              class="fa-brands fa-shopify"></i></div>
-          <div class="cap-name">Ecommerce & Store Ops</div>
-          <div class="cap-pills"><span class="cap-pill">Shopify Plus</span><span class="cap-pill">Liquid Dev</span><span
-              class="cap-pill">CRO</span><span class="cap-pill">Store Mgmt</span><span class="cap-pill">Inventory</span>
-          </div>
-        </div>
-        <div class="glass cap-card glass-glow reveal-stagger" style="transition-delay:80ms">
-          <div class="cap-icon" style="background:var(--blue-glow);color:var(--blue)"><i
-              class="fa-solid fa-bullhorn"></i></div>
-          <div class="cap-name">Paid Media</div>
-          <div class="cap-pills"><span class="cap-pill">Google Ads</span><span class="cap-pill">Meta Ads</span><span
-              class="cap-pill">$50K/mo budgets</span><span class="cap-pill">ROAS</span><span
-              class="cap-pill">Segmentation</span></div>
-        </div>
-        <div class="glass cap-card glass-glow reveal-stagger" style="transition-delay:160ms">
-          <div class="cap-icon" style="background:rgba(45,212,191,.08);color:var(--teal)"><i
-              class="fa-solid fa-magnifying-glass-chart"></i></div>
-          <div class="cap-name">SEO & Analytics</div>
-          <div class="cap-pills"><span class="cap-pill">Technical SEO</span><span class="cap-pill">GA4</span><span
-              class="cap-pill">Search Console</span><span class="cap-pill">SEMrush</span><span
-              class="cap-pill">Content</span></div>
-        </div>
-        <div class="glass cap-card glass-glow reveal-stagger" style="transition-delay:240ms">
-          <div class="cap-icon" style="background:rgba(251,113,133,.08);color:var(--rose)"><i
-              class="fa-solid fa-envelope-open-text"></i></div>
-          <div class="cap-name">Email & Lifecycle</div>
-          <div class="cap-pills"><span class="cap-pill">Klaviyo</span><span class="cap-pill">Mailchimp</span><span
-              class="cap-pill">Segmentation</span><span class="cap-pill">Automation</span><span
-              class="cap-pill">Post-Purchase</span></div>
-        </div>
-        <div class="glass cap-card glass-glow reveal-stagger" style="transition-delay:320ms">
-          <div class="cap-icon" style="background:rgba(251,191,36,.08);color:var(--amber)"><i
-              class="fa-solid fa-robot"></i></div>
-          <div class="cap-name">AI & Automation</div>
-          <div class="cap-pills"><span class="cap-pill">GPT Prompts</span><span class="cap-pill">n8n</span><span
-              class="cap-pill">Zapier</span><span class="cap-pill">AI Content</span></div>
-        </div>
-        <div class="glass cap-card glass-glow reveal-stagger" style="transition-delay:400ms">
-          <div class="cap-icon" style="background:rgba(129,140,248,.08);color:var(--indigo)"><i
-              class="fa-solid fa-video"></i></div>
-          <div class="cap-name">Content & Social</div>
-          <div class="cap-pills"><span class="cap-pill">CapCut</span><span class="cap-pill">Adobe Suite</span><span
-              class="cap-pill">IG/TikTok/YT</span><span class="cap-pill">Influencers</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- IMPACT -->
-  <section id="impact" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-    <div class="container">
-      <div class="label reveal-left" style="text-align:center;display:block">Impact</div>
-      <div class="big-title reveal" style="text-align:center">Numbers that<br><span class="gradient-text">speak</span>
-      </div>
-      <div class="impact-grid" style="margin-top:48px">
-        <div class="reveal-stagger">
-          <div class="imp-num gradient-text" data-count="50" data-suffix="+">0</div>
-          <div class="imp-label">Brands Scaled</div>
-        </div>
-        <div class="reveal-stagger" style="transition-delay:100ms">
-          <div class="imp-num" style="color:var(--blue)" data-count="4" data-suffix="×">0</div>
-          <div class="imp-label">Average ROAS</div>
-        </div>
-        <div class="reveal-stagger" style="transition-delay:200ms">
-          <div class="imp-num" style="color:var(--teal)" data-count="4.5" data-suffix="%" data-dec="1">0</div>
-          <div class="imp-label">Conversion Rate</div>
-        </div>
-      </div>
-      <div class="impact-grid" style="margin-top:24px">
-        <div class="reveal-stagger" style="transition-delay:300ms">
-          <div class="imp-num" style="color:var(--rose)" data-count="60" data-suffix="%">0</div>
-          <div class="imp-label">AI Efficiency Gains</div>
-        </div>
-        <div class="reveal-stagger" style="transition-delay:400ms">
-          <div class="imp-num" style="color:var(--amber)" data-count="3" data-suffix="×">0</div>
-          <div class="imp-label">Organic Traffic Growth</div>
-        </div>
-        <div class="reveal-stagger" style="transition-delay:500ms">
-          <div class="imp-num" style="color:var(--indigo)" data-count="10" data-suffix="K">0</div>
-          <div class="imp-label">YT Subs in 45 Days</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <div class="label reveal-left">Experience</div>
-      <div class="big-title reveal">Where I've made<br><span class="gradient-text">an impact</span></div>
-      <div class="sub reveal">Full-service agency managing up to 12 active AU/NZ accounts across ecommerce dev, paid
-        media, SEO, email, social, video, and AI automation.</div>
-      <div class="tl reveal">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-card glass">
-            <div class="tl-date">Jan 2020 - Present</div>
-            <h3>Flickkon Digital Agency</h3>
-            <div class="tl-role">Founder & Ecommerce Growth Strategist</div>
-            <ul class="tl-list">
-              <li><strong>Shopify dev:</strong> Built and optimised <strong>50+ Shopify/Plus stores</strong> with custom
-                Liquid themes, achieving <strong>4.5% CVR</strong> (2× industry avg). Strategic consultation on product
-                positioning and analytics</li>
-              <li><strong>Store management:</strong> Managed day-to-day operations for AU/NZ brands: <strong>order
-                  processing, inventory, returns, fulfillment, catalogue updates, pricing, promotions</strong>, and
-                performance reporting</li>
-              <li><strong>Paid media:</strong> Managed <strong>US $3K-$50K/mo</strong> (NZD $5K-$80K) per client across
-                Google Ads and Meta, delivering <strong>4× ROAS</strong> through audience segmentation, creative
-                testing, and LP optimisation</li>
-              <li><strong>SEO:</strong> <strong>Tripled organic traffic</strong> for AU health brand in 12mo through
-                technical audit, structured content, and Search Console refinement</li>
-              <li><strong>Email:</strong> Built <strong>Klaviyo and Mailchimp EDM</strong> for 15+ brands with
-                behavioural segmentation, A/B sequences, and post-purchase flows</li>
-              <li><strong>Video & design:</strong> Created content using CapCut and Adobe Suite. Grew <strong>10K YT
-                  subs in 45 days</strong> via Shorts-led strategy (70/30 split)</li>
-              <li><strong>Social media:</strong> Organic and paid strategies across IG, TikTok, FB, YouTube, Pinterest.
-                <strong>Briefed and managed influencer/creator campaigns</strong> for AU/NZ brands
-              </li>
-              <li><strong>AI automation:</strong> Built GPT-powered workflows for content, ad copy, and support. n8n and
-                Zapier systems reducing <strong>workload by 60% in 60-90 days</strong></li>
-              <li><strong>Retail sourcing:</strong> Market research, offline supplier ID, <strong>product quality
-                  assessment and supplier vetting</strong> for consumer goods categories</li>
-              <li><strong>Team leadership:</strong> Led <strong>cross-functional team of 6</strong> across design, dev,
-                paid media, and content. KPIs, resource allocation, delivery across 12 accounts</li>
-              <li><strong>Client management:</strong> Coordinated designers, devs, copywriters. Stakeholder
-                presentations and <strong>agile delivery across 7+ markets</strong></li>
-              <li><strong>US $70K incremental revenue</strong> for AU furniture retailer via organic, without increasing
-                paid spend</li>
-              <li><strong>50+ brands</strong> across AU, NZ, UK, USA, Canada, EU, South America, Japan over 6 years</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Industries -->
-      <div style="margin-top:40px" class="reveal">
-        <div class="label" style="margin-bottom:16px">Industries Served</div>
-        <div class="creds-wrap">
-          <div class="glass cred">Furniture</div>
-          <div class="glass cred">Fashion</div>
-          <div class="glass cred">Toys</div>
-          <div class="glass cred">Jewellery</div>
-          <div class="glass cred">Health & Wellness</div>
-          <div class="glass cred">Homewares</div>
-          <div class="glass cred">Food & Drink</div>
-          <div class="glass cred">Baby</div>
-          <div class="glass cred">Lifestyle</div>
-          <div class="glass cred" style="color:var(--green);border-color:rgba(0,220,130,.2)">& more</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREDENTIALS -->
-  <section id="credentials">
-    <div class="container">
-      <div class="label reveal-left">Credentials</div>
-      <div class="big-title reveal">Education &<br><span class="gradient-text">Certifications</span></div>
-      <div class="creds-wrap" style="margin-top:32px">
-        <div class="glass cred reveal-stagger"><i class="fa-brands fa-shopify"></i><strong>Shopify Expert
-            Partner</strong>· Since 2020</div>
-        <div class="glass cred reveal-stagger" style="transition-delay:60ms"><i
-            class="fa-brands fa-google"></i><strong>Google Analytics</strong>· Certified</div>
-        <div class="glass cred reveal-stagger" style="transition-delay:120ms"><i
-            class="fa-solid fa-brain"></i><strong>Prompt Engineering</strong>· Google & Claude AI</div>
-        <div class="glass cred reveal-stagger" style="transition-delay:180ms"><i
-            class="fa-solid fa-heart-pulse"></i><strong>Precision Nutrition L1</strong></div>
-        <div class="glass cred reveal-stagger" style="transition-delay:240ms"><i
-            class="fa-solid fa-laptop-code"></i><strong>Self-Directed Dev</strong>· freeCodeCamp · 2017+</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cta">
-    <div class="container">
-      <div class="label reveal">Next Step</div>
-      <h2 class="cta-h reveal">Ready to join<br><span class="gradient-text">your team</span></h2>
-      <p class="sub reveal" style="margin:0 auto 32px;text-align:center">Open to full-time, permanent, or contract roles
-        across all industries.</p>
-      <div class="cta-btns reveal">
-        <a href="mailto:jworkmail35@gmail.com" class="btn btn-green"><i
-            class="fa-solid fa-paper-plane"></i>jworkmail35@gmail.com</a>
-        <a href="Jay%20Odedra%20Updated%20CV.pdf" download class="btn btn-glass"><i
-            class="fa-solid fa-file-arrow-down"></i>Download CV</a>
-        <a href="https://linkedin.com/in/jay-odedra-942537125" target="_blank" class="btn btn-glass"><i
-            class="fa-brands fa-linkedin"></i>LinkedIn</a>
-        <a href="https://flickkon.com" target="_blank" class="btn btn-glass"><i
-            class="fa-solid fa-globe"></i>flickkon.com</a>
-      </div>
-      <div class="reloc reveal">
-        <i class="fa-solid fa-earth-oceania"></i>
-        <p><strong>Open to relocating to New Zealand</strong> for the right opportunity. Requires employer-sponsored NZ
-          work visa. Available to start <strong>immediately</strong> upon visa approval. 6+ years working with AU/NZ
-          brands remotely.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© 2026 Jay Odedra · Flickkon Digital Agency</p>
-    </div>
-  </footer>
-
-  <script>
-    // PROGRESS BAR
-    window.addEventListener('scroll', () => {
-      const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      document.getElementById('progress').style.width = (p * 100) + '%';
-    });
-
-    // NAV
-    window.addEventListener('scroll', () => {
-      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 80);
-    });
-
-    // REVEAL SYSTEM
-    const ro = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target) } });
-    }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.reveal,.reveal-left,.reveal-stagger').forEach(el => ro.observe(el));
-
-    // COUNTER ANIMATION
-    function animateCounter(el) {
-      const target = parseFloat(el.dataset.count);
-      const suffix = el.dataset.suffix || '';
-      const dec = parseInt(el.dataset.dec) || 0;
-      const dur = 1800;
-      const start = performance.now();
-      function tick(now) {
-        const p = Math.min((now - start) / dur, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        const v = ease * target;
-        el.textContent = (dec ? v.toFixed(dec) : Math.floor(v)) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }
-    const co = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); co.unobserve(e.target) } });
-    }, { threshold: .3 });
-    document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
-
-    // SMOOTH SCROLL
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }) });
-    });
-
-    // MOBILE MENU
-    const mobileMenuBtn = document.getElementById('mobileMenu');
-    const navLinks = document.querySelector('.nav-links');
-    if (mobileMenuBtn && navLinks) {
-      // Add mobile menu CSS
-      const mobileCSS = document.createElement('style');
-      mobileCSS.textContent = `
-        .nav-links.mobile-open {
-          display:flex!important;flex-direction:column;position:fixed;
-          top:70px;left:10px;right:10px;
-          background:rgba(10,10,15,.95);padding:20px;
-          gap:16px;border-radius:16px;border:1px solid var(--border);
-          backdrop-filter:blur(20px);z-index:99;
-        }
-      `;
-      document.head.appendChild(mobileCSS);
-
-      mobileMenuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = navLinks.classList.toggle('mobile-open');
-        mobileMenuBtn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-      });
-
-      // Close on link click
-      navLinks.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          navLinks.classList.remove('mobile-open');
-          mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        });
-      });
-
-      // Close on outside tap
-      document.addEventListener('click', (e) => {
-        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-          navLinks.classList.remove('mobile-open');
-          mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        }
-      });
-    }
-  </script>
 </body>
-
 </html>
