@@ -1,715 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jay Odedra | Ecommerce Growth & Digital Marketing</title>
-  <meta name="description" content="Jay Odedra | Ecommerce Growth Specialist, Digital Marketing, Shopify Expert Partner." />
-  <meta name="theme-color" content="#F4F1EA" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  <style>
-    /* Neo-Brutalist / Bento Grid Design - High-End Editorial (Earth Tones) */
-    :root {
-      --bg: #F0EBE1; /* Warm Oatmeal / Sand */
-      --text-main: #1A1A1A;
-      --text-muted: #595959;
-      --border-color: #1A1A1A;
-      --card-bg: #FAF9F6; /* Off-white */
-      --accent-1: #D97757; /* Terracotta */
-      --accent-2: #4A5D4E; /* Sage/Forest Green */
-      --accent-3: #416B82; /* Steel Blue */
-      --accent-4: #C4A46C; /* Mustard/Gold */
-      --accent-5: #7A5C61; /* Dusty Plum */
-      --font-sans: 'Inter', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --radius: 12px;
-      --shadow: 4px 4px 0px 0px #1A1A1A;
-      --shadow-hover: 8px 8px 0px 0px #1A1A1A;
-      --shadow-btn: 2px 2px 0px 0px #1A1A1A;
-      --shadow-btn-hover: 4px 4px 0px 0px #1A1A1A;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jay Odedra | Fractional Head of Ecommerce</title>
+<meta name="description" content="Jay Odedra: Fractional Head of Ecommerce and Shopify Partner. Growth systems for 50+ global consumer brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@property --zip{syntax:'<number>';inherits:true;initial-value:0}
+:root{
+  --wall:#EBDCC0; --floor:#F26A1B; --floor-d:#C9500D; --ink:#111; --paper:#FFFDF7;
+  --yellow:#FFC93C; --blue:#3B5BFF; --red:#D62E2E; --red-d:#7C1313; --green:#2FBF71; --pink:#F58FB4; --sky:#9CCBEA;
+  --cur:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><path d='M4 2 L4 22 L9 17 L13 26 L17 24 L13 15 L21 15 Z' fill='%23FFC93C' stroke='%23111' stroke-width='2' stroke-linejoin='round'/></svg>") 4 2, auto;
+  --cur-hand:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30'><path d='M4 2 L4 22 L9 17 L13 26 L17 24 L13 15 L21 15 Z' fill='%23FF4B4B' stroke='%23111' stroke-width='2' stroke-linejoin='round'/></svg>") 4 2, pointer;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--floor);color:var(--ink);cursor:var(--cur);line-height:1.5;overflow-x:hidden}
+a,button,[data-open],.cart{cursor:var(--cur-hand)}
+h1,h2,h3{line-height:1;letter-spacing:-.02em}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.18;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      overflow-x: hidden;
-      padding: 1.5rem;
-    }
+/* loader */
+#loader{position:fixed;inset:0;z-index:300;background:var(--floor);display:grid;place-items:center;transition:opacity .5s,visibility .5s}
+#loader.done{opacity:0;visibility:hidden}
+.ld-card{background:#fff;border:2px solid var(--ink);border-radius:10px;box-shadow:8px 8px 0 var(--ink);padding:24px 30px;rotate:-1.5deg;min-width:280px}
+.ld-card p{font-weight:700;font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase}
+.ld-card small{display:block;color:#873807;letter-spacing:.05em;margin:.2rem 0 1rem}
+.ld-bar{display:flex;gap:4px}
+.ld-bar i{flex:1;height:22px;background:#e8e8e8;border:1px solid var(--ink);border-radius:3px;animation:seg 1.4s steps(1) infinite}
+.ld-bar i:nth-child(n){animation-delay:calc(var(--i)*.09s)}
+@keyframes seg{0%,100%{background:#e8e8e8}20%,80%{background:var(--ink)}}
 
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-    }
+/* header */
+header.bar{position:absolute;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.6rem}
+.badge-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:800;font-size:1.25rem}
+.badge-logo b{display:grid;place-items:center;width:46px;height:46px;border:2px solid var(--ink);border-radius:12px;background:var(--yellow);box-shadow:3px 3px 0 var(--ink);rotate:-6deg}
+nav.top{display:flex;gap:.6rem}
+.pill{border:2px solid var(--ink);background:var(--paper);border-radius:999px;padding:.5rem 1.1rem;font:600 1rem 'Jost';color:var(--ink);text-decoration:none;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.pill:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pill.hot{background:var(--red);color:#fff}
 
-    /* Bento Grid Layout */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
+/* scene */
+#scene{position:relative;height:100dvh;min-height:680px;overflow:hidden;background:var(--wall);touch-action:pan-y}
+.wallbg{position:absolute;left:0;right:0;top:0;height:52%;border-bottom:2px solid var(--ink);background:
+  linear-gradient(var(--wall),var(--wall))}
+.wall-stripe{position:absolute;left:0;right:0;top:46%;height:6%;background:#D9C6A3;border-top:2px solid var(--ink)}
+.floorbg{position:absolute;left:0;right:0;top:52%;bottom:0;background:var(--floor)}
+.floorbg svg{position:absolute;inset:0;width:100%;height:100%}
+.hint{position:absolute;left:50%;bottom:14px;translate:-50% 0;z-index:55;background:var(--paper);border:2px dashed var(--ink);border-radius:99px;padding:.3rem 1rem;font-weight:600;font-size:.9rem;pointer-events:none;white-space:nowrap}
 
-    .card {
-      background-color: var(--card-bg);
-      border: 2px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-      transition: all 0.2s ease;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
+.prop{position:absolute;z-index:10;user-select:none;-webkit-user-select:none;touch-action:none;rotate:var(--r,0deg);scale:1;transition:scale .15s,filter .15s}
+.prop.dragging{scale:1.06;z-index:99!important;filter:drop-shadow(10px 14px 0 rgba(0,0,0,.28))}
+.prop:focus-visible{outline:3px solid var(--blue);outline-offset:4px;border-radius:10px}
+.fixed{position:absolute;z-index:5}
 
-    .card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translate(-2px, -2px);
-    }
+/* wall sign */
+.sign{left:50%;top:16%;translate:-50% 0;width:min(620px,46vw);text-align:center;background:var(--paper);border:2px solid var(--ink);border-radius:14px;box-shadow:8px 8px 0 var(--ink);padding:1.6rem 1.8rem;rotate:-1deg;z-index:20}
+.sign::before,.sign::after{content:"";position:absolute;top:-14px;width:14px;height:14px;border-radius:50%;background:var(--ink)}
+.sign::before{left:24px}.sign::after{right:24px}
+.sign .status{display:inline-flex;align-items:center;gap:.45rem;border:2px solid var(--ink);border-radius:99px;background:var(--green);padding:.15rem .8rem;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.sign .status i{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.sign h1{font-size:clamp(2.2rem,4.6vw,4.1rem);font-weight:800;margin:.8rem 0 .6rem}
+.sign h1 mark{background:var(--yellow);padding:0 .12em;border-radius:8px;display:inline-block;rotate:-2deg}
+.sign p{font-size:1.15rem;color:#3d3629;font-weight:500}
 
-    .card-dark {
-      background-color: var(--text-main);
-      color: #fff;
-    }
-    .card-dark .text-muted { color: #aaaaaa; }
-    .card-dark .border-line { border-color: #333; }
+/* window */
+.window{left:5%;top:15%;width:200px;height:240px;border:2px solid var(--ink);background:var(--sky);border-radius:100px 100px 8px 8px;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
+.window .sun{position:absolute;right:30px;top:40px;width:46px;height:46px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink)}
+.window .cloud{position:absolute;height:22px;width:70px;background:#fff;border:2px solid var(--ink);border-radius:99px;animation:drift 26s linear infinite}
+.window .c2{top:120px;width:90px;animation-duration:38s;animation-delay:-14s}
+@keyframes drift{from{left:-100px}to{left:220px}}
+.window::before,.window::after{content:"";position:absolute;background:var(--ink)}
+.window::before{left:50%;top:0;bottom:0;width:3px}
+.window::after{top:60%;left:0;right:0;height:3px}
+.shelf{right:5%;top:30%;width:210px}
+.frame{width:150px;height:190px;border:2px solid var(--ink);background:var(--paper);box-shadow:6px 6px 0 var(--ink);padding:.8rem;text-align:center;rotate:3deg;position:absolute;right:6%;top:15%}
+.frame b{display:block;font-size:1.05rem;font-weight:800;line-height:1.1;margin-bottom:.4rem}
+.frame span{font-size:.85rem;font-weight:500;display:block}
+.frame .seal{width:56px;height:56px;margin:.5rem auto;border-radius:50%;background:var(--red);border:2px solid var(--ink);display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.3rem}
 
-    /* Grid Spanning */
-    .span-12 { grid-column: span 12; }
-    .span-8 { grid-column: span 8; }
-    .span-7 { grid-column: span 7; }
-    .span-6 { grid-column: span 6; }
-    .span-5 { grid-column: span 5; }
-    .span-4 { grid-column: span 4; }
-    .span-3 { grid-column: span 3; }
+/* laptop */
+.laptop{width:230px}
+.laptop .scr{height:150px;background:#1b1b1b;border:3px solid var(--ink);border-radius:12px 12px 0 0;padding:10px;display:flex;flex-direction:column;gap:6px}
+.laptop .tab{height:10px;width:60%;background:var(--green);border-radius:3px}
+.laptop .tab.s{width:35%;background:var(--yellow)}
+.laptop .chart{flex:1;display:flex;align-items:flex-end;gap:5px}
+.laptop .chart i{flex:1;background:var(--pink);border-radius:3px 3px 0 0;animation:grow 3s ease-in-out infinite alternate}
+.laptop .chart i:nth-child(1){height:30%}.laptop .chart i:nth-child(2){height:45%;animation-delay:.2s}
+.laptop .chart i:nth-child(3){height:40%;animation-delay:.4s}.laptop .chart i:nth-child(4){height:70%;animation-delay:.6s}
+.laptop .chart i:nth-child(5){height:62%;animation-delay:.8s}.laptop .chart i:nth-child(6){height:92%;animation-delay:1s}
+@keyframes grow{to{filter:brightness(1.3);transform:scaleY(1.08);transform-origin:bottom}}
+.laptop .base{height:16px;background:#cfcfcf;border:3px solid var(--ink);border-radius:0 0 18px 18px;margin:0 -14px}
+.lbl{position:absolute;left:50%;top:100%;translate:-50% 6px;background:var(--yellow);border:2px solid var(--ink);border-radius:6px;padding:0 .5rem;font-weight:700;font-size:.8rem;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
 
-    @media (max-width: 1024px) {
-      .span-8, .span-7, .span-6, .span-5, .span-4, .span-3 { grid-column: span 12; }
-    }
+/* phone */
+.phone{width:74px;height:170px;background:var(--red);border:3px solid var(--ink);border-radius:18px 18px 12px 12px;box-shadow:inset 0 0 0 4px rgba(255,255,255,.12)}
+.phone::before{content:"";position:absolute;right:8px;top:-34px;width:10px;height:36px;background:var(--ink);border-radius:4px}
+.phone .spk{height:6px;width:36px;margin:12px auto;border-radius:99px;background:var(--ink)}
+.phone .lcd{margin:6px 8px;height:62px;background:var(--green);border:3px solid var(--ink);border-radius:6px;font:700 .72rem 'Jost';line-height:1.1;padding:5px;text-align:center;display:grid;place-items:center}
+.phone .keys{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:8px 12px}
+.phone .keys i{height:11px;background:#fff;border:2px solid var(--ink);border-radius:4px}
+.phone.ring{animation:ring 3.6s ease-in-out infinite}
+@keyframes ring{0%,86%,100%{translate:0}88%{translate:-3px 0}90%{translate:3px 0}92%{translate:-3px 0}94%{translate:3px 0}96%{translate:0}}
 
-    /* Typography */
-    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
-    p { margin-bottom: 1rem; font-size: 1.05rem; }
-    .text-muted { color: var(--text-muted); }
-    .font-mono { font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
-    
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 0.8rem;
-      border: 2px solid var(--border-color);
-      border-radius: 999px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      background-color: var(--bg);
-      color: var(--text-main);
-      box-shadow: 2px 2px 0px 0px var(--border-color);
-      width: fit-content;
-    }
+/* letter */
+.letter{width:150px;height:100px;background:var(--paper);border:3px solid var(--ink);border-radius:6px}
+.letter::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49%,var(--ink) 49%,var(--ink) 51%,transparent 51%) top left/50% 100% no-repeat,linear-gradient(to bottom left,transparent 49%,var(--ink) 49%,var(--ink) 51%,transparent 51%) top right/50% 100% no-repeat}
+.letter .stamp{position:absolute;right:8px;top:8px;width:32px;height:38px;background:var(--yellow);border:2px dashed var(--ink);display:grid;place-items:center;font-weight:800;font-size:.7rem;z-index:1}
+.letter .to{position:absolute;left:10px;bottom:10px;font-weight:700;font-size:.9rem;z-index:1;background:var(--paper);padding:0 4px}
 
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.8rem;
-      border: 2px solid var(--border-color);
-      border-radius: var(--radius);
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      color: var(--text-main);
-      background-color: var(--card-bg);
-      box-shadow: var(--shadow-btn);
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: var(--shadow-btn-hover);
-    }
-    .btn-primary { background-color: var(--accent-1); }
-    .btn-full { width: 100%; }
+/* cartridges */
+.cart{width:96px;height:118px;background:#2a2a2a;border:3px solid var(--ink);border-radius:8px 8px 4px 4px;clip-path:none;padding:12px 8px 8px;box-shadow:4px 5px 0 var(--ink)}
+.cart::before{content:"";position:absolute;left:8px;right:8px;top:-3px;height:9px;background:var(--floor-d);border:2px solid var(--ink);border-top:0;border-radius:0 0 5px 5px}
+.cart .lab{height:100%;border:2px solid var(--ink);border-radius:5px;padding:.4rem .3rem;display:flex;flex-direction:column;justify-content:space-between;text-align:center;font-weight:800;font-size:.95rem;line-height:1}
+.cart .lab small{font-weight:600;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase}
+.cart:hover{translate:0 -6px}
 
-    /* Service/Skill List Styling */
-    .border-line {
-      height: 2px;
-      background-color: var(--border-color);
-      margin: 1.5rem 0;
-      width: 100%;
-    }
-    .skill-list {
-      list-style: none;
-      margin-bottom: 2rem;
-      flex-grow: 1;
-    }
-    .skill-list li {
-      position: relative;
-      padding-left: 1.8rem;
-      margin-bottom: 0.75rem;
-      font-weight: 500;
-      font-size: 1.05rem;
-    }
-    .skill-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent-3);
-      font-weight: 800;
-      font-family: var(--font-mono);
-    }
-    
-    .skill-icon {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--border-color);
-      border-radius: var(--radius);
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      background: var(--bg);
-      box-shadow: 2px 2px 0px 0px var(--border-color);
-    }
+/* stickers */
+.sticker{display:grid;place-items:center;text-align:center;width:104px;height:104px;border-radius:50%;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font-weight:800;line-height:1}
+.sticker b{font-size:1.9rem;display:block}.sticker small{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.tagprice{background:var(--paper);border:2px solid var(--ink);border-radius:8px 8px 8px 8px;padding:.5rem .9rem .5rem 1.6rem;font-weight:800;box-shadow:4px 4px 0 var(--ink);position:absolute;white-space:nowrap}
+.tagprice::before{content:"";position:absolute;left:8px;top:50%;width:9px;height:9px;border-radius:50%;border:2px solid var(--ink);translate:0 -50%}
+.tagprice small{display:block;font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
 
-    /* Case Study styling */
-    .case-card {
-      padding: 0;
-    }
-    .case-img-placeholder {
-      height: 240px;
-      border-bottom: 2px solid var(--border-color);
-      background-image: repeating-linear-gradient(45deg, #e5e5e5 25%, transparent 25%, transparent 75%, #e5e5e5 75%, #e5e5e5), repeating-linear-gradient(45deg, #e5e5e5 25%, var(--bg) 25%, var(--bg) 75%, #e5e5e5 75%, #e5e5e5);
-      background-position: 0 0, 10px 10px;
-      background-size: 20px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .case-content {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .case-tags {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-    .tag {
-      padding: 0.25rem 0.75rem;
-      border: 2px solid var(--border-color);
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      background: var(--bg);
-    }
-    .metric-box {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 2px dashed var(--border-color);
-    }
-    .metric-value {
-      font-size: 1.75rem;
-      font-weight: 800;
-      font-family: var(--font-mono);
-      display: block;
-      line-height: 1.1;
-    }
-    .metric-label {
-      font-size: 0.7rem;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
+/* pocket */
+.pocket{width:300px;height:220px}
+.pocket .interior,.pocket .body{position:absolute;left:0;right:0;clip-path:polygon(0 0,100% 0,100% 82%,50% 100%,0 82%)}
+.pocket .interior{top:0;bottom:0;background:var(--red-d)}
+.pocket .chips{position:absolute;left:12px;right:12px;top:12px;height:46%;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pocket .chips span{background:var(--paper);border:2px solid var(--ink);border-radius:8px;font-weight:700;font-size:.78rem;line-height:1.05;padding:.3rem .45rem;display:flex;align-items:center;gap:.35rem}
+.pocket .chips span i{width:10px;height:10px;border-radius:50%;border:2px solid var(--ink);flex:none}
+.pocket .body{top:46%;bottom:0;background:var(--red);border-top:0}
+.pocket .outline{position:absolute;inset:0;pointer-events:none}
+.pocket .flap{position:absolute;left:0;right:0;top:0;height:calc((1 - var(--zip)) * 46%);background:var(--red);border-bottom:3px solid var(--ink);transition:height .45s cubic-bezier(.3,1.4,.5,1);overflow:hidden}
+.pocket .flap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:repeating-linear-gradient(90deg,var(--ink) 0 4px,transparent 4px 8px)}
+.pocket .title{position:absolute;left:0;right:0;top:22%;text-align:center;font-weight:800;font-size:1.4rem;color:#fff;letter-spacing:.06em;text-transform:uppercase;z-index:2;transition:opacity .3s;opacity:calc(1 - var(--zip) * 1.6)}
+.pocket .pull{position:absolute;z-index:4;left:calc(8% + var(--zip) * 74%);top:calc((1 - var(--zip)) * 46% - 12px);width:34px;height:34px;border-radius:50%;background:var(--yellow);border:3px solid var(--ink);display:grid;place-items:center;font-weight:800;cursor:var(--cur-hand);transition:left .45s cubic-bezier(.3,1.4,.5,1),top .45s cubic-bezier(.3,1.4,.5,1);touch-action:none}
+.pocket.pulling .flap,.pocket.pulling .pull{transition:none}
+.pocket .pocket-lbl{position:absolute;left:0;right:0;bottom:30px;text-align:center;font-weight:700;color:#fff;font-size:.9rem;z-index:2}
 
-    /* Top Marquee */
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-      border: 2px solid var(--border-color);
-      border-radius: var(--radius);
-      background-color: var(--card-bg);
-      padding: 1rem 0;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-    .marquee-content {
-      display: flex;
-      width: max-content;
-      animation: scroll 20s linear infinite;
-    }
-    .marquee-item {
-      padding: 0 2rem;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-    .marquee-item::after {
-      content: '✦';
-      color: var(--text-main);
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    
-    /* Section Headers */
-    .section-header {
-      padding: 2rem 0 1rem;
-    }
+/* modal */
+#modal{position:fixed;inset:0;z-index:250;display:none;place-items:center;padding:1rem;background:rgba(17,17,17,.55)}
+#modal.on{display:grid}
+.m-card{width:min(980px,100%);max-height:92dvh;overflow:auto;background:var(--paper);border:2px solid var(--ink);border-radius:18px;box-shadow:10px 10px 0 var(--ink);position:relative;animation:pop .28s cubic-bezier(.3,1.4,.5,1)}
+@keyframes pop{from{scale:.85;opacity:0}}
+.m-x{position:absolute;top:12px;right:12px;z-index:2;width:42px;height:42px;border-radius:50%;border:2px solid var(--ink);background:var(--yellow);font:800 1.2rem 'Jost';box-shadow:3px 3px 0 var(--ink)}
+.m-case{display:grid;grid-template-columns:1.15fr 1fr}
+.m-shot{min-height:420px;background-size:cover;background-position:center top;border-right:2px solid var(--ink)}
+.m-body{padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.m-body h2{font-size:2.6rem;font-weight:800}
+.tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{border:2px solid var(--ink);border-radius:99px;padding:.1rem .8rem;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;background:#fff}
+.m-body ul{padding-left:1.1rem;color:#3d3629}
+.metrics{display:flex;gap:1.4rem;flex-wrap:wrap;border-top:2px dashed var(--ink);padding-top:1rem;margin-top:auto}
+.metrics b{display:block;font-size:2rem;font-weight:800;line-height:1}
+.metrics span{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600;color:#555}
+.m-nav{display:flex;gap:.6rem}
+.m-text{padding:2.4rem}
+.m-text h2{font-size:2.6rem;font-weight:800;margin-bottom:1rem}
+.m-text p{font-size:1.15rem;margin-bottom:.9rem;max-width:62ch}
+.m-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.2rem}
 
-    /* Custom Timeline */
-    .timeline-item {
-      border-left: 2px solid var(--border-color);
-      padding-left: 1.5rem;
-      position: relative;
-      margin-bottom: 2.5rem;
-    }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -9px;
-      top: 0;
-      width: 16px;
-      height: 16px;
-      background: var(--accent-1);
-      border: 2px solid var(--border-color);
-      border-radius: 50%;
-    }
+/* content (below scene) */
+main.content{background:var(--paper);border-top:2px solid var(--ink);padding:4.5rem 1.5rem}
+.wrap{max-width:1180px;margin:0 auto}
+.eyebrow{font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--floor-d);font-size:.9rem;margin-bottom:.6rem}
+.sec{margin-bottom:5rem}
+.sec h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;margin-bottom:1.6rem;max-width:18ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.2rem;margin-bottom:5rem}
+.card{border:2px solid var(--ink);border-radius:16px;background:#fff;box-shadow:6px 6px 0 var(--ink);padding:1.5rem}
+.stat b{font-size:3.4rem;font-weight:800;display:block;line-height:1}
+.stat span{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;color:#555}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.about p{font-size:1.15rem;margin-bottom:.8rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.skills h3{font-size:1.5rem;margin:.2rem 0 .8rem}
+.skills li{list-style:none;padding:.15rem 0 .15rem 1.2rem;position:relative}
+.skills li::before{content:"→";position:absolute;left:0;color:var(--floor-d);font-weight:800}
+.dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);display:inline-block}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.4rem}
+.wk{padding:0;overflow:hidden;text-align:left;font:inherit;transition:translate .15s}
+.wk:hover{translate:0 -5px}
+.wk .im{height:210px;background-size:cover;background-position:center top;border-bottom:2px solid var(--ink)}
+.wk .tx{padding:1.2rem}
+.wk h3{font-size:1.7rem;margin:.5rem 0 .3rem}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:1.2rem}
+.tl{border-left:3px solid var(--ink);margin-left:.5rem;padding-left:1.4rem}
+.tl div{position:relative;padding-bottom:1.5rem}
+.tl div::before{content:"";position:absolute;left:-1.4rem;top:.35rem;translate:-50% 0;width:15px;height:15px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink)}
+.tl small{font-weight:600;color:#666;letter-spacing:.05em}
+.tl h3{font-size:1.35rem}
+.tl p{color:#3d3629}
+.cred{display:flex;align-items:center;gap:.8rem;border:2px solid var(--ink);border-radius:12px;padding:.8rem 1rem;margin-bottom:.8rem;background:var(--wall)}
+.cred b{font-size:1.1rem}
+.cred small{display:block;color:#555}
+.contact{background:var(--floor);border:2px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);text-align:center;padding:4rem 1.5rem}
+.contact h2{margin:0 auto 1rem;max-width:16ch;color:#fff}
+.contact p{font-size:1.25rem;margin-bottom:1.6rem;color:#fff}
+.contact .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+footer{background:var(--ink);color:#fff;text-align:center;padding:1.6rem;font-weight:600;letter-spacing:.06em}
 
-  </style>
+@media(max-width:900px){
+  #scene{min-height:560px;height:80dvh}
+  .prop,.window,.frame,.hint{display:none}
+  .sign{width:88vw;top:24%}
+  nav.top .pill:not(.hot){display:none}
+  .about,.two,.m-case{grid-template-columns:1fr}
+  .m-shot{min-height:220px;border-right:0;border-bottom:2px solid var(--ink)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
 
-  <div class="container">
-    
-    <!-- Top Nav / Marquee -->
-    <div class="marquee">
-      <div class="marquee-content">
-        <div class="marquee-item">Ecommerce Management</div>
-        <div class="marquee-item">Ecommerce Growth</div>
-        <div class="marquee-item">Shopify Expert</div>
-        <div class="marquee-item">Digital Marketing</div>
-        <div class="marquee-item">AI Automation</div>
-        <div class="marquee-item">Conversion Optimization</div>
-        <!-- Duplicate for infinite scroll -->
-        <div class="marquee-item">Ecommerce Management</div>
-        <div class="marquee-item">Ecommerce Growth</div>
-        <div class="marquee-item">Shopify Expert</div>
-        <div class="marquee-item">Digital Marketing</div>
-        <div class="marquee-item">AI Automation</div>
-        <div class="marquee-item">Conversion Optimization</div>
-      </div>
-    </div>
+<div id="loader" role="status" aria-live="polite">
+  <div class="ld-card"><p>Loading<span id="dots">...</span></p><small>jay odedra · portfolio</small>
+    <div class="ld-bar" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i></div>
+  </div>
+</div>
 
-    <!-- MAIN HERO BENTO -->
-    <div class="bento-grid">
-      
-      <!-- HERO (Span 8) -->
-      <div class="card span-8">
-        <div class="label" style="background-color: var(--accent-2); color: #fff;"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Available for new roles</div>
-        <h1 style="margin-top: 1rem;">I build growth systems.</h1>
-        <p style="font-size: 1.3rem; max-width: 600px; margin-bottom: 2rem; color: var(--text-muted); line-height: 1.5;">
-          <strong>Jay Odedra</strong> — Fractional Head of Ecommerce & Shopify Partner. 6+ years running the end-to-end digital operations for 50+ global consumer brands through development, paid media, and SEO.
-        </p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto;">
-          <a href="#work" class="btn btn-primary">See My Work <i class="fa-solid fa-arrow-down"></i></a>
-          <a href="Jay_Odedra_Resume_2026.pdf" download class="btn">Download CV <i class="fa-solid fa-download"></i></a>
-        </div>
-      </div>
+<section id="scene" aria-label="Interactive portfolio room">
+  <header class="bar">
+    <a href="#scene" class="badge-logo"><b>JO</b><span>Jay Odedra</span></a>
+    <nav class="top"><a class="pill" href="#about">About</a><a class="pill" href="#work">Work</a><a class="pill" href="#journey">Journey</a><a class="pill hot" href="#contact">Hire me</a></nav>
+  </header>
 
-      <!-- ABOUT (Span 4) -->
-      <div class="card span-4 card-dark">
-        <div class="label" style="background-color: transparent; color: #fff; border-color: #fff;">About Me</div>
-        <p style="font-size: 1.1rem; line-height: 1.7; flex-grow: 1;">
-          Six years ago I founded Flickkon Digital Agency. What started as Shopify builds quickly evolved into operating as a <strong>Fractional Head of Ecommerce</strong> for flagship accounts. I integrated deeply with internal teams to manage daily trading, promotional calendars, and digital strategy.
-        </p>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: #ccc;">
-          Because I’ve built and run an agency, I know exactly how to evaluate and manage external agency partners to get maximum ROI. Now, I want to take this operational expertise <strong>in-house</strong> to make one team the best-performing version of itself.
-        </p>
-      </div>
-
-      <!-- METRICS (Span 12) -->
-      <div class="card span-12" style="background-color: var(--bg); padding: 0;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-          <div style="padding: 2.5rem; border-right: 2px solid var(--border-color); border-bottom: 2px solid var(--border-color);">
-            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-4);">50+</div>
-            <div class="font-mono">Brands Scaled</div>
-          </div>
-          <div style="padding: 2.5rem; border-right: 2px solid var(--border-color); border-bottom: 2px solid var(--border-color);">
-            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-3);">4×</div>
-            <div class="font-mono">Avg ROAS</div>
-          </div>
-          <div style="padding: 2.5rem; border-right: 2px solid var(--border-color); border-bottom: 2px solid var(--border-color);">
-            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-2);">4.5%</div>
-            <div class="font-mono">Conv. Rate</div>
-          </div>
-          <div style="padding: 2.5rem; border-bottom: 2px solid var(--border-color);">
-            <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 0.5rem; color: var(--accent-1);">$80K+</div>
-            <div class="font-mono">USD/mo Ad Spend</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SKILLS SECTION (Styled like Services) -->
-    <div class="section-header">
-      <h2 style="font-size: 2.5rem; letter-spacing: -0.05em; margin-bottom: 0.5rem; text-transform: uppercase;">Capabilities</h2>
-      <p class="text-muted" style="font-size: 1.2rem;">A full-stack growth skill set in one person. Bridging strategy and execution, end-to-end.</p>
-    </div>
-
-    <div class="bento-grid">
-      <!-- Skill 1 -->
-      <div class="card span-4">
-        <div class="skill-icon" style="background-color: var(--accent-2);"><i class="fa-solid fa-store" style="color: #fff;"></i></div>
-        <h3>Ecommerce Management & CRO</h3>
-        <p class="text-muted font-mono">End-to-End Operations</p>
-        <div class="border-line"></div>
-        <ul class="skill-list">
-          <li>Conversion Rate Optimisation</li>
-          <li>Merchandising & catalog strategy</li>
-          <li>Tech stack & app management</li>
-          <li>Custom Shopify development</li>
-          <li>Site speed & UX auditing</li>
-        </ul>
-        <a href="#work" class="btn btn-full">See related work</a>
-      </div>
-
-      <!-- Skill 2 -->
-      <div class="card span-4">
-        <div class="skill-icon" style="background-color: var(--accent-3);"><i class="fa-solid fa-chart-line" style="color: #fff;"></i></div>
-        <h3>Performance Marketing</h3>
-        <p class="text-muted font-mono">Acquisition Strategy & Scaling</p>
-        <div class="border-line"></div>
-        <ul class="skill-list">
-          <li>Budget allocation & forecasting</li>
-          <li>Google Ads (Shopping, PMax)</li>
-          <li>Paid Social (Meta & TikTok)</li>
-          <li>Creative strategy & testing</li>
-          <li>CPA & ROAS optimization</li>
-        </ul>
-        <a href="#work" class="btn btn-full">See related work</a>
-      </div>
-
-      <!-- Skill 3 -->
-      <div class="card span-4">
-        <div class="skill-icon" style="background-color: var(--accent-4);"><i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i></div>
-        <h3>SEO & Content</h3>
-        <p class="text-muted font-mono">2–3× Organic Traffic Baseline</p>
-        <div class="border-line"></div>
-        <ul class="skill-list">
-          <li>Technical SEO audits</li>
-          <li>Keyword mapping & strategy</li>
-          <li>AI-assisted content pipelines</li>
-          <li>Organic traffic scaling</li>
-          <li>Product schema implementation</li>
-        </ul>
-        <a href="#work" class="btn btn-full">See related work</a>
-      </div>
-
-      <!-- Skill 4 -->
-      <div class="card span-4">
-        <div class="skill-icon" style="background-color: var(--accent-1);"><i class="fa-solid fa-envelope"></i></div>
-        <h3>Retention & Lifecycle</h3>
-        <p class="text-muted font-mono">Klaviyo Expert</p>
-        <div class="border-line"></div>
-        <ul class="skill-list">
-          <li>Klaviyo setup & audits</li>
-          <li>Core automation flows</li>
-          <li>Advanced segmentation</li>
-          <li>Winback sequences</li>
-          <li>List growth strategy</li>
-        </ul>
-      </div>
-
-      <!-- Skill 5 -->
-      <div class="card span-4">
-        <div class="skill-icon" style="background-color: var(--text-main);"><i class="fa-solid fa-code" style="color: #fff;"></i></div>
-        <h3>Technical Development</h3>
-        <p class="text-muted font-mono">HTML, CSS, JS, Liquid</p>
-        <div class="border-line"></div>
-        <ul class="skill-list">
-          <li>Frontend (HTML/CSS/JS)</li>
-          <li>Shopify Liquid programming</li>
-          <li>Custom UI/UX implementation</li>
-          <li>API & webhook integrations</li>
-          <li>Technical troubleshooting</li>
-        </ul>
-      </div>
-
-      <!-- Skill 6 -->
-      <div class="card span-4">
-        <div class="skill-icon" style="background-color: var(--accent-5);"><i class="fa-solid fa-robot" style="color:#fff;"></i></div>
-        <h3>AI & Automation</h3>
-        <p class="text-muted font-mono">Python & Workflows</p>
-        <div class="border-line"></div>
-        <ul class="skill-list">
-          <li>Python scripting</li>
-          <li>n8n & Zapier workflows</li>
-          <li>GPT data processing</li>
-          <li>Automated reporting</li>
-          <li>System integrations</li>
-        </ul>
-      </div>
-    </div>
-
-
-    <!-- CASE STUDIES SECTION -->
-    <div class="section-header" id="work">
-      <h2>Selected Works</h2>
-      <p class="text-muted" style="font-size: 1.2rem;">Real brands. Real results. Deep-dives from client work.</p>
-    </div>
-
-    <div class="bento-grid">
-      <!-- Case 1 (Span 12) Featured -->
-      <div class="card span-12 case-card" style="flex-direction: row; flex-wrap: wrap;">
-        <div class="case-img-placeholder" style="flex: 1; min-width: 300px; height: auto; border-bottom: none; border-right: 2px solid var(--border-color); background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.19.02_2x_Medium_98c701cd-ecd4-4828-9f97-64956b7df5ff.png?v=1778256984'); background-size: cover; background-position: center top;">
-        </div>
-        <div class="case-content" style="flex: 1; min-width: 350px;">
-          <div class="case-tags">
-            <span class="tag" style="background-color: var(--accent-1);">Luxury Furniture</span>
-            <span class="tag">Melbourne, AU</span>
-          </div>
-          <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">Gainsville</h3>
-          <p class="text-muted" style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Problem:</strong> Slow load times, low mobile conversion rate, disjointed UX.</p>
-          <p class="text-muted" style="font-size: 1.1rem;"><strong>Action:</strong> Rebuilt the Shopify theme mobile-first. Lazy-loaded imagery, streamlined checkout, trust signal architecture, speed audit.</p>
-          
-          <div class="metric-box">
-            <div>
-              <span class="metric-value" style="color: var(--accent-2);">+38%</span>
-              <span class="metric-label">Mobile Revenue</span>
-            </div>
-            <div>
-              <span class="metric-value">-2.1s</span>
-              <span class="metric-label">Load Time</span>
-            </div>
-            <div>
-              <span class="metric-value">-24%</span>
-              <span class="metric-label">Bounce Rate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Case 2 (Span 6) -->
-      <div class="card span-6 case-card">
-        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.55.00_2x_Medium_b553cbac-37c1-4918-8d6f-93c1561ae5c9.png?v=1778257804'); background-size: cover; background-position: center top;">
-        </div>
-        <div class="case-content">
-          <div class="case-tags">
-            <span class="tag" style="background-color: var(--accent-3); color: #fff;">Luxury Fashion</span>
-            <span class="tag">US / Global</span>
-          </div>
-          <h3>Heiress Beverly Hills</h3>
-          <p class="text-muted" style="font-size: 1rem; margin-bottom: 1rem;">One-year engagement managing CRO, custom page design, and bespoke integrations for a premium women's ready-to-wear brand.</p>
-          <ul class="text-muted" style="font-size: 0.95rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.5;">
-            <li><strong>CRO & Layouts:</strong> Redesigned collections and PDPs to reduce friction and elevate the luxury aesthetic.</li>
-            <li><strong>Custom Design:</strong> Built refined, premium page designs balancing high-end branding with commercial usability.</li>
-            <li><strong>Integrations:</strong> Extended Shopify's native functionality with bespoke third-party tool connections.</li>
-          </ul>
-          <div class="metric-box" style="margin-top: auto;">
-            <div><span class="metric-value" style="color: var(--accent-3);">1 Yr</span><span class="metric-label">Engagement</span></div>
-            <div><span class="metric-value">Premium</span><span class="metric-label">UX Design</span></div>
-            <div><span class="metric-value">Custom</span><span class="metric-label">Integrations</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Case 3 (Span 6) -->
-      <div class="card span-6 case-card">
-        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.48.50_2x_Medium_fb2cf065-dee6-4f58-a6b3-8f811570fb45.png?v=1778257173'); background-size: cover; background-position: center top;">
-        </div>
-        <div class="case-content">
-          <div class="case-tags">
-            <span class="tag" style="background-color: var(--accent-4); color: #fff;">Equestrian Retail</span>
-            <span class="tag">Global</span>
-          </div>
-          <h3>Equestroom</h3>
-          <p class="text-muted" style="font-size: 1rem; margin-bottom: 1rem;">Two-year engagement managing Shopify ecommerce, SEO, CRO, and site speed for an international equestrian retailer.</p>
-          <ul class="text-muted" style="font-size: 0.95rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.5;">
-            <li><strong>Speed:</strong> Rebuilt theme code, taking PageSpeed from 30 to 87.</li>
-            <li><strong>SEO:</strong> Full technical and content overhaul; hit top 5 pages for targets.</li>
-            <li><strong>CRO:</strong> Redesigned collections & PDPs, lifting conversion rate by 1.5%.</li>
-            <li><strong>Ops:</strong> Managed ongoing merchandising and product uploads.</li>
-          </ul>
-          <div class="metric-box" style="margin-top: auto;">
-            <div><span class="metric-value" style="color: var(--accent-4);">30→87</span><span class="metric-label">PageSpeed</span></div>
-            <div><span class="metric-value">+1.5%</span><span class="metric-label">Conv. Rate</span></div>
-            <div><span class="metric-value">Top 5</span><span class="metric-label">SEO Ranks</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Case 4 (Span 6) MADE FREE -->
-      <div class="card span-6 case-card">
-        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.19.25_2x_Medium_1b8a1474-dd14-4113-a5df-8e3fd90a0b67.png?v=1778256974'); background-size: cover; background-position: center top;">
-        </div>
-        <div class="case-content">
-          <div class="case-tags">
-            <span class="tag" style="background-color: var(--accent-2); color: #fff;">Sustainable DTC</span>
-            <span class="tag">US / Global</span>
-          </div>
-          <h3>MADE FREE®</h3>
-          <p class="text-muted" style="font-size: 1rem;">Three-year engagement managing CRO, UX, site speed and SEO. Revamped product pages to focus on impact and purpose, significantly increasing trust.</p>
-          <div class="metric-box" style="margin-top: auto;">
-            <div><span class="metric-value" style="color: var(--accent-2);">+2%</span><span class="metric-label">Conv. Lift</span></div>
-            <div><span class="metric-value">3 Yrs</span><span class="metric-label">Engagement</span></div>
-            <div><span class="metric-value">UX</span><span class="metric-label">Improved</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Case 5 (Span 6) Ativafit -->
-      <div class="card span-6 case-card">
-        <div class="case-img-placeholder" style="background-image: url('https://cdn.shopify.com/s/files/1/0933/0517/6439/files/CleanShot_2026-05-08_at_21.19.41_2x_Medium_c91ddd3d-2e82-424b-9111-214e01f82249.png?v=1778256978'); background-size: cover; background-position: center top;">
-        </div>
-        <div class="case-content">
-          <div class="case-tags">
-            <span class="tag" style="background-color: var(--accent-5); color: #fff;">Fitness DTC</span>
-            <span class="tag">US / Global</span>
-          </div>
-          <h3>Ativafit</h3>
-          <p class="text-muted" style="font-size: 1rem;">Onsite and offsite SEO, blog content strategy, and CRO. Took the brand from barely visible to ranking on the first page for high-intent terms.</p>
-          <div class="metric-box" style="margin-top: auto;">
-            <div><span class="metric-value" style="color: var(--accent-5);">Page 1</span><span class="metric-label">Rankings</span></div>
-            <div><span class="metric-value">High</span><span class="metric-label">Search Intent</span></div>
-            <div><span class="metric-value">CRO</span><span class="metric-label">Optimized</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- EXPERIENCE & CREDENTIALS -->
-    <div class="bento-grid">
-      <!-- Journey (Span 6) -->
-      <div class="card span-6">
-        <div class="label">Timeline</div>
-        <h2>Journey</h2>
-        <div class="border-line"></div>
-        
-        <div class="timeline-item">
-          <span class="font-mono text-muted">2019-Present</span>
-          <h3 style="margin-top: 0.5rem;">Founder & Director</h3>
-          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Flickkon Digital Agency</p>
-          <p class="text-muted">Built and scaled a full-service Shopify and digital marketing agency from zero. Managing 12 brands simultaneously across 7 global markets.</p>
-        </div>
-        
-        <div class="timeline-item">
-          <span class="font-mono text-muted">2020-2023</span>
-          <h3 style="margin-top: 0.5rem;">Head of E-commerce</h3>
-          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Multiple Client Brands</p>
-          <p class="text-muted">Embedded growth lead for flagship accounts. Owned strategy, execution, and reporting across all digital channels.</p>
-        </div>
-        
-        <div class="timeline-item">
-          <span class="font-mono text-muted">2018-2019</span>
-          <h3 style="margin-top: 0.5rem;">Ecommerce Manager</h3>
-          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Decaf Media · Part-time</p>
-          <p class="text-muted">Managed e-commerce operations, CRO, store updates, and performance optimization.</p>
-        </div>
-
-        <div class="timeline-item">
-          <span class="font-mono text-muted">2018-2019</span>
-          <h3 style="margin-top: 0.5rem;">Digital Marketing Coordinator</h3>
-          <p class="font-mono" style="margin-bottom: 0.5rem; font-weight: 700;">Retail & Lifestyle Brands</p>
-          <p class="text-muted">Social media management, content production, ad campaigns for retail and lifestyle brands.</p>
-        </div>
-      </div>
-
-      <!-- Credentials (Span 6) -->
-      <div class="card span-6">
-        <div class="label" style="background-color: var(--accent-3); color: #fff; border-color: var(--accent-3);">Certifications</div>
-        <h2>Credentials</h2>
-        <div class="border-line"></div>
-        
-        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
-          <i class="fa-brands fa-shopify fa-3x" style="color: var(--accent-2);"></i>
-          <div>
-            <h3 style="margin: 0;">Shopify Expert Partner</h3>
-            <span class="text-muted font-mono">Certified since 2020 · 50+ stores</span>
-          </div>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
-          <i class="fa-brands fa-google fa-3x" style="color: var(--accent-3);"></i>
-          <div>
-            <h3 style="margin: 0;">Google Ads Certified</h3>
-            <span class="text-muted font-mono">Search · Shopping · PMax</span>
-          </div>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
-          <i class="fa-brands fa-meta fa-3x" style="color: var(--accent-1);"></i>
-          <div>
-            <h3 style="margin: 0;">Meta Blueprint</h3>
-            <span class="text-muted font-mono">Media Buying · Creative</span>
-          </div>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: var(--radius); background: var(--bg);">
-          <i class="fa-solid fa-envelope fa-3x" style="color: var(--accent-4);"></i>
-          <div>
-            <h3 style="margin: 0;">Klaviyo Expert</h3>
-            <span class="text-muted font-mono">Email automation & flows</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- CONTACT (Span 12) -->
-    <div class="bento-grid" style="margin-top: 3rem;">
-      <div class="card span-12" style="background-color: var(--accent-1); text-align: center; padding: 4rem 2rem;">
-        <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; max-width: 800px; margin-inline: auto; line-height: 1.1;">Let's talk about what we can build together.</h2>
-        <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-main); font-weight: 500;">
-          I respond within 24 hours. No fluff, just a genuine conversation about whether we're the right fit.
-        </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="mailto:jworkmail35@gmail.com" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-            <i class="fa-solid fa-paper-plane"></i> jworkmail35@gmail.com
-          </a>
-          <a href="https://linkedin.com/in/jayodedra" target="_blank" class="btn" style="padding: 1rem; width: 60px;">
-            <i class="fa-brands fa-linkedin-in" style="font-size: 1.2rem;"></i>
-          </a>
-          <a href="Jay_Odedra_Resume_2026.pdf" download class="btn" style="padding: 1rem; width: 60px;">
-            <i class="fa-solid fa-file-pdf" style="font-size: 1.2rem;"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <footer style="text-align: center; padding: 2rem 0 1rem; margin-top: 1rem;">
-      <p class="font-mono" style="font-weight: 700; font-size: 1rem;">© 2026 JAY ODEDRA. ALL RIGHTS RESERVED.</p>
-    </footer>
-
+  <div class="wallbg"></div><div class="wall-stripe"></div>
+  <div class="floorbg">
+    <svg viewBox="0 0 1000 480" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="#111" stroke-width="1.6" fill="none" vector-effect="non-scaling-stroke">
+        <line x1="0" y1="60" x2="1000" y2="60"/><line x1="0" y1="170" x2="1000" y2="170"/><line x1="0" y1="330" x2="1000" y2="330"/><line x1="0" y1="450" x2="1000" y2="450"/>
+        <line x1="380" y1="0" x2="130" y2="480"/><line x1="620" y1="0" x2="870" y2="480"/><line x1="500" y1="0" x2="500" y2="480" opacity="0"/>
+      </g>
+    </svg>
   </div>
 
+  <div class="fixed window" aria-hidden="true"><div class="sun"></div><div class="cloud" style="top:60px"></div><div class="cloud c2"></div></div>
+  <div class="fixed frame" aria-hidden="true"><b>Shopify Expert Partner</b><div class="seal">★</div><span>Certified since 2020</span></div>
+
+  <div class="fixed sign">
+    <span class="status"><i></i> Available for new roles</span>
+    <h1>I build <mark>growth</mark> systems.</h1>
+    <p><strong>Fractional Head of Ecommerce</strong> · 6+ years · 50+ global brands</p>
+  </div>
+
+  <!-- props -->
+  <div class="prop laptop" data-open="about" tabindex="0" role="button" aria-label="Open About" style="left:5%;top:56%;--r:-3deg"><div class="scr"><div class="tab"></div><div class="tab s"></div><div class="chart"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="base"></div><span class="lbl">About me</span></div>
+
+  <div class="prop pocket" id="pocket" style="left:37%;top:52%;--r:1deg" aria-label="Credentials pocket. Drag the zip.">
+    <div class="interior"><div class="chips"><span><i style="background:var(--green)"></i>Shopify Expert Partner</span><span><i style="background:var(--blue)"></i>Google Ads Certified</span><span><i style="background:var(--pink)"></i>Meta Blueprint</span><span><i style="background:var(--yellow)"></i>Klaviyo Expert</span></div></div>
+    <div class="body"></div>
+    <svg class="outline" viewBox="0 0 300 220" preserveAspectRatio="none" aria-hidden="true"><polygon points="1.5,1.5 298.5,1.5 298.5,180 150,218.5 1.5,180" fill="none" stroke="#111" stroke-width="3"/></svg>
+    <div class="flap"></div>
+    <div class="title">Credentials</div>
+    <div class="pocket-lbl">pull the zip</div>
+    <div class="pull" data-nodrag id="pull" role="slider" tabindex="0" aria-label="Open credentials pocket" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">↔</div>
+  </div>
+
+  <div class="prop phone ring" data-open="contact" tabindex="0" role="button" aria-label="Open Contact" style="left:68%;top:50%;--r:5deg"><div class="spk"></div><div class="lcd">1 new offer?<br>Call me</div><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+
+  <a class="prop letter" data-cv href="Jay_Odedra_Resume_2026" download style="left:80%;top:68%;--r:-6deg" aria-label="Download CV"><span class="stamp">CV</span><span class="to">Open me</span></a>
+
+  <div class="prop sticker" style="left:25%;top:55%;--r:-10deg;background:var(--blue);color:#fff"><div><b>4×</b><small>avg ROAS</small></div></div>
+  <div class="prop sticker" style="left:60%;top:76%;--r:8deg;background:var(--yellow)"><div><b>50+</b><small>brands</small></div></div>
+  <div class="prop sticker" style="left:30%;top:68%;--r:6deg;background:var(--green)"><div><b>4.5%</b><small>conv. rate</small></div></div>
+  <div class="prop tagprice" style="left:76%;top:56%;--r:-5deg"><small>Ad spend managed</small>$80K+ NZD / mo</div>
+
+  <div id="carts"></div>
+  <div class="hint">Drag things around · click cartridges for case studies</div>
+</section>
+
+<main class="content">
+  <div class="wrap">
+    <div class="stats">
+      <div class="card stat"><b style="color:var(--blue)">50+</b><span>Brands scaled</span></div>
+      <div class="card stat"><b style="color:var(--red)">4×</b><span>Avg ROAS</span></div>
+      <div class="card stat"><b style="color:var(--green)">4.5%</b><span>Conv. rate</span></div>
+      <div class="card stat"><b style="color:var(--floor-d)">$80K+</b><span>NZD/mo ad spend</span></div>
+    </div>
+
+    <div class="sec" id="about">
+      <div class="eyebrow">About me</div><h2>Agency founder. In-house at heart.</h2>
+      <div class="about">
+        <div class="card"><p>Six years ago I founded Flickkon Digital Agency. What started as Shopify builds evolved into operating as a <strong>Fractional Head of Ecommerce</strong> for flagship accounts.</p><p>I integrated deeply with internal teams to manage daily trading, promotional calendars and digital strategy.</p></div>
+        <div class="card"><p>Because I've built and run an agency, I know exactly how to evaluate and manage external agency partners to get maximum ROI.</p><p><strong>Now I want to take this operational expertise in-house</strong> and help one team become the best-performing version of itself.</p></div>
+      </div>
+    </div>
+
+    <div class="sec" id="skills">
+      <div class="eyebrow">Capabilities</div><h2>A full-stack growth skill set in one person.</h2>
+      <div class="skills" id="skillsList"></div>
+    </div>
+
+    <div class="sec" id="work">
+      <div class="eyebrow">Selected works</div><h2>Real brands. Real results.</h2>
+      <div class="works" id="worksList"></div>
+    </div>
+
+    <div class="sec two" id="journey">
+      <div class="card"><div class="eyebrow">Timeline</div><h2 style="font-size:2.4rem">Journey</h2>
+        <div class="tl">
+          <div><small>2019 – PRESENT</small><h3>Founder &amp; Director</h3><b>Flickkon Digital Agency</b><p>Built and scaled a full-service Shopify and digital marketing agency from zero. 12 brands at once across 7 global markets.</p></div>
+          <div><small>2020 – 2023</small><h3>Head of E-commerce</h3><b>Multiple client brands</b><p>Embedded growth lead for flagship accounts. Owned strategy, execution and reporting across all digital channels.</p></div>
+          <div><small>2018 – 2019</small><h3>Ecommerce Manager</h3><b>Decaf Media · Part-time</b><p>Managed e-commerce operations, store updates and performance optimisation.</p></div>
+          <div><small>2018 – 2019</small><h3>Digital Marketing Coordinator</h3><b>Retail &amp; lifestyle brands</b><p>Social media management, content production and ad campaigns.</p></div>
+        </div></div>
+      <div class="card"><div class="eyebrow">Certifications</div><h2 style="font-size:2.4rem">Credentials</h2>
+        <div class="cred"><span class="dot" style="background:var(--green)"></span><div><b>Shopify Expert Partner</b><small>Certified since 2020 · 50+ stores</small></div></div>
+        <div class="cred"><span class="dot" style="background:var(--blue)"></span><div><b>Google Ads Certified</b><small>Search · Shopping · PMax</small></div></div>
+        <div class="cred"><span class="dot" style="background:var(--pink)"></span><div><b>Meta Blueprint</b><small>Media buying · Creative</small></div></div>
+        <div class="cred"><span class="dot" style="background:var(--yellow)"></span><div><b>Klaviyo Expert</b><small>Email automation &amp; flows</small></div></div>
+      </div>
+    </div>
+
+    <div class="contact" id="contact">
+      <h2>Let's talk about what we can build together.</h2>
+      <p>I respond within 24 hours. No fluff, just a genuine conversation.</p>
+      <div class="row">
+        <a class="pill" href="mailto:jworkmail35@gmail.com">✉ jworkmail35@gmail.com</a>
+        <a class="pill" href="https://linkedin.com/in/jayodedra" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="Jay_Odedra_Resume_2026.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>© 2025 JAY ODEDRA. ALL RIGHTS RESERVED.</footer>
+
+<div id="modal" role="dialog" aria-modal="true" aria-label="Details"><div class="m-card" id="mcard"></div></div>
+
+<script>
+(function(){
+  var IMG='https://cdn.shopify.com/s/files/1/0933/0517/6439/files/';
+  var cases=[
+   {id:'gains',t:'Gainsville',c:'#FFC93C',tag:['Luxury Furniture','Melbourne, AU'],img:IMG+'CleanShot_2026-05-08_at_21.19.02_2x_Medium_98c701cd-ecd4-4828-9f97-64956b7df5ff.png?v=1778256984',
+    sum:'<b>Problem:</b> Slow load times, low mobile conversion, disjointed UX.<br><b>Action:</b> Rebuilt the Shopify theme mobile-first. Lazy-loaded imagery, streamlined checkout, trust signal architecture, speed audit.',
+    m:[['+38%','Mobile revenue'],['-2.1s','Load time'],['-24%','Bounce rate']]},
+   {id:'heiress',t:'Heiress Beverly Hills',c:'#F58FB4',tag:['Luxury Fashion','US / Global'],img:IMG+'CleanShot_2026-05-08_at_21.55.00_2x_Medium_b553cbac-37c1-4918-8d6f-93c1561ae5c9.png?v=1778257804',
+    sum:'One-year engagement managing CRO, custom page design and bespoke integrations for a premium women\'s ready-to-wear brand.',
+    b:['<b>CRO and layouts:</b> redesigned collections and PDPs to reduce friction and elevate the luxury aesthetic.','<b>Custom design:</b> premium pages balancing branding with commercial usability.','<b>Integrations:</b> extended Shopify with bespoke third-party connections.'],
+    m:[['1 Yr','Engagement'],['Premium','UX design'],['Custom','Integrations']]},
+   {id:'equest',t:'Equestroom',c:'#2FBF71',tag:['Equestrian Retail','Global'],img:IMG+'CleanShot_2026-05-08_at_21.48.50_2x_Medium_fb2cf065-dee6-4f58-a6b3-8f811570fb45.png?v=1778257173',
+    sum:'Two-year engagement managing Shopify ecommerce, SEO, CRO and site speed for an international equestrian retailer.',
+    b:['<b>Speed:</b> rebuilt theme code, PageSpeed from 30 to 87.','<b>SEO:</b> full technical and content overhaul; top 5 pages for targets.','<b>CRO:</b> redesigned collections and PDPs, conversion rate up 1.5%.','<b>Ops:</b> ongoing merchandising and product uploads.'],
+    m:[['30→87','PageSpeed'],['+1.5%','Conv. rate'],['Top 5','SEO ranks']]},
+   {id:'made',t:'MADE FREE®',c:'#9CCBEA',tag:['Sustainable DTC','US / Global'],img:IMG+'CleanShot_2026-05-08_at_21.19.25_2x_Medium_1b8a1474-dd14-4113-a5df-8e3fd90a0b67.png?v=1778256974',
+    sum:'Three-year engagement managing CRO, UX, site speed and SEO. Revamped product pages to focus on impact and purpose, significantly increasing trust.',
+    m:[['+2%','Conv. lift'],['3 Yrs','Engagement'],['UX','Improved']]},
+   {id:'ativa',t:'Ativafit',c:'#FF7A59',tag:['Fitness DTC','US / Global'],img:IMG+'CleanShot_2026-05-08_at_21.19.41_2x_Medium_c91ddd3d-2e82-424b-9111-214e01f82249.png?v=1778256978',
+    sum:'Onsite and offsite SEO, blog content strategy and CRO. Took the brand from barely visible to ranking on the first page for high-intent terms.',
+    m:[['Page 1','Rankings'],['High','Search intent'],['CRO','Optimised']]}
+  ];
+  var skills=[
+   ['#2FBF71','Ecommerce Management & CRO','End-to-end operations',['Conversion rate optimisation','Merchandising and catalog strategy','Tech stack and app management','Site speed and UX auditing']],
+   ['#D62E2E','Performance Marketing','Acquisition and scaling',['Budget allocation and forecasting','Google Ads (Shopping, PMax)','Paid social (Meta and TikTok)','CPA and ROAS optimisation']],
+   ['#3B5BFF','SEO & Content','2-3× organic traffic baseline',['Technical SEO audits','Keyword mapping and strategy','AI-assisted content pipelines','Product schema implementation']],
+   ['#FFC93C','Retention & Lifecycle','Klaviyo expert',['Klaviyo setup and audits','Core automation flows','Advanced segmentation','Winback and list growth']],
+   ['#111','Technical Development','HTML, CSS, JS, Liquid',['Frontend (HTML/CSS/JS)','Shopify Liquid programming','API and webhook integrations','Technical troubleshooting']],
+   ['#F58FB4','AI & Automation','Python and workflows',['Python scripting','n8n and Zapier workflows','GPT data processing','Automated reporting']]
+  ];
+  var $=function(s,r){return (r||document).querySelector(s)};
+
+  // render lists
+  $('#skillsList').innerHTML=skills.map(function(s){return '<div class="card"><span class="dot" style="background:'+s[0]+'"></span><h3>'+s[1]+'</h3><small>'+s[2]+'</small><ul style="margin-top:.7rem">'+s[3].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div>'}).join('');
+  $('#worksList').innerHTML=cases.map(function(c,i){return '<button class="card wk" data-case="'+i+'"><div class="im" style="background-image:url(\''+c.img+'\')"></div><div class="tx"><div class="tags">'+c.tag.map(function(t){return '<span class="tag">'+t+'</span>'}).join('')+'</div><h3>'+c.t+'</h3><p>Open case study →</p></div></button>'}).join('');
+
+  // cartridges
+  var lefts=[7,21,35,49,63],tops=[78,81,78,82,79],rots=[-5,4,-3,6,-6];
+  $('#carts').innerHTML=cases.map(function(c,i){return '<div class="prop cart" data-case="'+i+'" tabindex="0" role="button" aria-label="Open case study: '+c.t+'" style="left:'+lefts[i]+'%;top:'+tops[i]+'%;--r:'+rots[i]+'deg"><div class="lab" style="background:'+c.c+'"><small>Case study</small><span>'+c.t.replace('Heiress Beverly Hills','Heiress BH')+'</span><small>0'+(i+1)+'</small></div></div>'}).join('');
+
+  // modal
+  var modal=$('#modal'),mcard=$('#mcard'),lastFocus=null,cur=0;
+  function open(html){lastFocus=document.activeElement;mcard.innerHTML='<button class="m-x" aria-label="Close">✕</button>'+html;modal.classList.add('on');$('.m-x',mcard).focus()}
+  function close(){modal.classList.remove('on');if(lastFocus)lastFocus.focus()}
+  function showCase(i){
+    cur=(i+cases.length)%cases.length;var c=cases[cur];
+    open('<div class="m-case"><div class="m-shot" style="background-image:url(\''+c.img+'\')"></div><div class="m-body"><div class="tags">'+c.tag.map(function(t){return '<span class="tag" style="background:'+c.c+'">'+t+'</span>'}).join('')+'</div><h2>'+c.t+'</h2><p>'+c.sum+'</p>'+(c.b?'<ul>'+c.b.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>':'')+'<div class="metrics">'+c.m.map(function(m){return '<div><b>'+m[0]+'</b><span>'+m[1]+'</span></div>'}).join('')+'</div><div class="m-nav"><button class="pill" data-nav="-1">← Prev</button><button class="pill" data-nav="1">Next →</button></div></div></div>');
+  }
+  function showAbout(){open('<div class="m-text"><div class="eyebrow">About me</div><h2>Agency founder. In-house at heart.</h2><p>Six years ago I founded Flickkon Digital Agency. What started as Shopify builds evolved into operating as a <strong>Fractional Head of Ecommerce</strong> for flagship accounts, managing daily trading, promotional calendars and digital strategy alongside internal teams.</p><p>Because I\'ve built and run an agency, I know exactly how to evaluate and manage external agency partners to get maximum ROI. Now I want to take this expertise <strong>in-house</strong>.</p><div class="m-actions"><a class="pill" href="#about" data-close>Read more ↓</a><a class="pill hot" href="Jay_Odedra_Resume_2026" download>Download CV</a></div></div>')}
+  function showContact(){open('<div class="m-text"><div class="eyebrow">Contact</div><h2>Let\'s talk.</h2><p>I respond within 24 hours. No fluff, just a genuine conversation about whether we\'re the right fit.</p><div class="m-actions"><a class="pill hot" href="mailto:jworkmail35@gmail.com">✉ jworkmail35@gmail.com</a><a class="pill" href="https://linkedin.com/in/jayodedra" target="_blank" rel="noopener">LinkedIn</a><a class="pill" href="Jay_Odedra_Resume_2026" download>Download CV</a></div></div>')}
+  function act(el){
+    if(el.dataset.case!==undefined)return showCase(+el.dataset.case);
+    if(el.dataset.open==='about')return showAbout();
+    if(el.dataset.open==='contact')return showContact();
+  }
+  modal.addEventListener('click',function(e){
+    if(e.target===modal||e.target.closest('.m-x')||e.target.closest('[data-close]'))return close();
+    var n=e.target.closest('[data-nav]');if(n)showCase(cur+ +n.dataset.nav);
+  });
+  document.addEventListener('keydown',function(e){
+    if(modal.classList.contains('on')){if(e.key==='Escape')close();if(e.key==='ArrowRight')showCase(cur+1);if(e.key==='ArrowLeft')showCase(cur-1)}
+    else if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('.prop[data-open],.prop[data-case]')){e.preventDefault();act(e.target)}
+  });
+  $('#worksList').addEventListener('click',function(e){var b=e.target.closest('[data-case]');if(b)showCase(+b.dataset.case)});
+
+  // dragging
+  var scene=$('#scene'),zTop=20;
+  function drag(el){
+    var sx,sy,ox,oy,moved,active=false;
+    el.addEventListener('pointerdown',function(e){
+      if(e.target.closest('[data-nodrag]'))return;
+      var s=scene.getBoundingClientRect(),r=el.getBoundingClientRect();
+      ox=r.left-s.left;oy=r.top-s.top;sx=e.clientX;sy=e.clientY;moved=false;active=true;
+      el.setPointerCapture(e.pointerId);el.style.zIndex=++zTop;
+    });
+    el.addEventListener('pointermove',function(e){
+      if(!active)return;
+      var dx=e.clientX-sx,dy=e.clientY-sy;
+      if(!moved&&Math.hypot(dx,dy)>5){moved=true;el.classList.add('dragging')}
+      if(!moved)return;
+      var s=scene.getBoundingClientRect();
+      var x=Math.max(0,Math.min(s.width-el.offsetWidth,ox+dx)),y=Math.max(0,Math.min(s.height-el.offsetHeight,oy+dy));
+      el.style.left=(x/s.width*100)+'%';el.style.top=(y/s.height*100)+'%';
+    });
+    function end(){
+      if(!active)return;active=false;el.classList.remove('dragging');
+      if(!moved&&(el.dataset.open||el.dataset.case!==undefined))act(el);
+    }
+    el.addEventListener('pointerup',end);el.addEventListener('pointercancel',function(){active=false;el.classList.remove('dragging')});
+    el.addEventListener('click',function(e){if(moved){e.preventDefault();moved=false}});
+  }
+  document.querySelectorAll('.prop').forEach(function(p){p.addEventListener('dragstart',function(e){e.preventDefault()});drag(p)});
+
+  // zip pocket
+  var pocket=$('#pocket'),pull=$('#pull'),zip=0;
+  function setZip(v){zip=Math.max(0,Math.min(1,v));pocket.style.setProperty('--zip',zip);pull.setAttribute('aria-valuenow',Math.round(zip*100))}
+  (function(){
+    var down=false,sx,sz,moved=false;
+    pull.addEventListener('pointerdown',function(e){down=true;moved=false;sx=e.clientX;sz=zip;pocket.classList.add('pulling');pull.setPointerCapture(e.pointerId);e.stopPropagation()});
+    pull.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;setZip(sz+dx/(pocket.offsetWidth*.74))});
+    function end(){if(!down)return;down=false;pocket.classList.remove('pulling');setZip(moved?(zip>.5?1:0):(zip>.5?0:1))}
+    pull.addEventListener('pointerup',end);pull.addEventListener('pointercancel',end);
+    pull.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();setZip(e.key==='ArrowLeft'?0:e.key==='ArrowRight'?1:(zip>.5?0:1))}});
+  })();
+
+  // loader
+  var t0=Date.now(),ld=$('#loader');
+  function hide(){setTimeout(function(){ld.classList.add('done')},Math.max(0,1100-(Date.now()-t0)))}
+  if(document.readyState==='complete')hide();else window.addEventListener('load',hide);
+  setTimeout(hide,3500);
+})();
+</script>
 </body>
 </html>
