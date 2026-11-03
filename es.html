@@ -207,10 +207,21 @@ main.content{background:var(--paper);border-top:2px solid var(--ink);padding:4.5
 .contact .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
 footer{background:var(--ink);color:#fff;text-align:center;padding:1.6rem;font-weight:600;letter-spacing:.06em}
 
+.hint .hm{display:none}
+#carts{display:contents}
 @media(max-width:900px){
-  #scene{min-height:560px;height:80dvh}
-  .prop,.window,.frame,.hint{display:none}
-  .sign{width:88vw;top:24%}
+  #scene{min-height:760px;height:100dvh}
+  .window,.frame,.laptop,.sticker,.tagprice,.hint .hd{display:none}
+  .hint .hm{display:inline}
+  .hint{bottom:10px;font-size:.78rem}
+  .sign{width:90vw;top:19%}
+  .pocket{width:230px;height:168px}
+  .pocket .chips{gap:4px;left:9px;right:9px;top:9px}
+  .pocket .chips span{font-size:.66rem;padding:.2rem .35rem}
+  .pocket .title{font-size:1.15rem}
+  .letter{width:120px;height:80px}
+  #carts{position:absolute;left:0;right:0;bottom:44px;z-index:30;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 20px 8px;-webkit-overflow-scrolling:touch}
+  #carts .cart{position:relative;left:auto!important;top:auto!important;flex:none;scroll-snap-align:center;touch-action:pan-x}
   nav.top .pill:not(.hot):not(.lang){display:none}
   .about,.two,.m-case{grid-template-columns:1fr}
   .m-shot{min-height:220px;border-right:0;border-bottom:2px solid var(--ink)}
@@ -255,7 +266,7 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:1.6rem;font-we
   <!-- props -->
   <div class="prop laptop" data-open="about" tabindex="0" role="button" aria-label="Abrir Sobre mí" style="left:5%;top:56%;--r:-3deg"><div class="scr"><div class="tab"></div><div class="tab s"></div><div class="chart"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="base"></div><span class="lbl">Sobre mí</span></div>
 
-  <div class="prop pocket" id="pocket" style="left:37%;top:52%;--r:1deg" aria-label="Bolsillo de credenciales. Arrastra la cremallera.">
+  <div class="prop pocket" id="pocket" data-m="6%,53%" style="left:37%;top:52%;--r:1deg" aria-label="Bolsillo de credenciales. Arrastra la cremallera.">
     <div class="interior"><div class="chips"><span><i style="background:var(--green)"></i>Shopify Expert Partner</span><span><i style="background:var(--blue)"></i>Certificado en Google Ads</span><span><i style="background:var(--pink)"></i>Meta Blueprint</span><span><i style="background:var(--yellow)"></i>Experto en Klaviyo</span></div></div>
     <div class="body"></div>
     <svg class="outline" viewBox="0 0 300 220" preserveAspectRatio="none" aria-hidden="true"><polygon points="1.5,1.5 298.5,1.5 298.5,180 150,218.5 1.5,180" fill="none" stroke="#111" stroke-width="3"/></svg>
@@ -265,9 +276,9 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:1.6rem;font-we
     <div class="pull" data-nodrag id="pull" role="slider" tabindex="0" aria-label="Abrir bolsillo de credenciales" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">↔</div>
   </div>
 
-  <div class="prop phone ring" data-open="contact" tabindex="0" role="button" aria-label="Abrir Contacto" style="left:68%;top:50%;--r:5deg"><div class="spk"></div><div class="lcd">¿1 oferta nueva?<br>Llámame</div><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+  <div class="prop phone ring" data-open="contact" tabindex="0" role="button" aria-label="Abrir Contacto" data-m="72%,52%" style="left:68%;top:50%;--r:5deg"><div class="spk"></div><div class="lcd">¿1 oferta nueva?<br>Llámame</div><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 
-  <a class="prop letter" data-cv href="Jay_Odedra_Resume_2026.pdf" download style="left:80%;top:68%;--r:-6deg" aria-label="Descargar CV"><span class="stamp">CV</span><span class="to">Ábreme</span></a>
+  <a class="prop letter" data-cv href="Jay_Odedra_Resume_2026.pdf" download data-m="4%,45%" style="left:80%;top:68%;--r:-6deg" aria-label="Descargar CV"><span class="stamp">CV</span><span class="to">Ábreme</span></a>
 
   <div class="prop sticker" style="left:25%;top:55%;--r:-10deg;background:var(--blue);color:#fff"><div><b>4×</b><small>ROAS prom.</small></div></div>
   <div class="prop sticker" style="left:60%;top:76%;--r:8deg;background:var(--yellow)"><div><b>50+</b><small>marcas</small></div></div>
@@ -275,7 +286,7 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:1.6rem;font-we
   <div class="prop tagprice" style="left:76%;top:56%;--r:-5deg"><small>Inversión publicitaria gestionada</small>$80K+ USD / mes</div>
 
   <div id="carts"></div>
-  <div class="hint">Arrastra los objetos · haz clic en los cartuchos para ver casos de estudio</div>
+  <div class="hint"><span class="hd">Arrastra los objetos · haz clic en los cartuchos para ver casos de estudio</span><span class="hm">Arrastra · desliza los cartuchos →</span></div>
 </section>
 
 <main class="content">
@@ -401,12 +412,20 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:1.6rem;font-we
   });
   $('#worksList').addEventListener('click',function(e){var b=e.target.closest('[data-case]');if(b)showCase(+b.dataset.case)});
 
+  // responsive layout: touch scene on small screens
+  var mq=window.matchMedia('(max-width:900px)');
+  function layout(){document.querySelectorAll('.prop[data-m]').forEach(function(p){
+    if(!p.dataset.d)p.dataset.d=p.style.left+','+p.style.top;
+    var v=(mq.matches?p.dataset.m:p.dataset.d).split(',');p.style.left=v[0];p.style.top=v[1];});}
+  layout();if(mq.addEventListener)mq.addEventListener('change',layout);else mq.addListener(layout);
+
   // dragging
   var scene=$('#scene'),zTop=20;
   function drag(el){
     var sx,sy,ox,oy,moved,active=false;
+    if(el.classList.contains('cart'))el.addEventListener('click',function(){if(mq.matches)act(el)});
     el.addEventListener('pointerdown',function(e){
-      if(e.target.closest('[data-nodrag]'))return;
+      if(e.target.closest('[data-nodrag]')||(mq.matches&&el.classList.contains('cart')))return;
       var s=scene.getBoundingClientRect(),r=el.getBoundingClientRect();
       ox=r.left-s.left;oy=r.top-s.top;sx=e.clientX;sy=e.clientY;moved=false;active=true;
       el.setPointerCapture(e.pointerId);el.style.zIndex=++zTop;
